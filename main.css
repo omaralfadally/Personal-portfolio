@@ -322,6 +322,7 @@ svg {
   width: 80%;
   max-width: 300px;
   opacity: 0;
+  cursor: pointer;
   animation: fadein 0.7s 2.75s cubic-bezier(0.755, 0.05, 0.855, 0.06) forwards;
 }
 
@@ -357,7 +358,74 @@ svg {
 }
 
 .projects {
-  height: 100dvh;
+  height: 300dvh;
+}
+
+.projects .projects-holder {
+  margin-top: 2rem;
+  position: relative;
+}
+
+.projects .projects-holder .scroll-spacer {
+  height: 100vh;
+}
+
+.projects .projects-holder .project {
+  padding: 0.75rem;
+  background-color: var(--color-bg-primary);
+  outline: 8px solid var(--color-bg-secondary);
+  border-radius: 15px;
+  margin-bottom: 11rem;
+  position: sticky;
+  top: 25px;
+}
+
+.projects .projects-holder .project img {
+  width: 100%;
+  max-height: 200px;
+  max-width: 100%;
+  border-radius: 15px;
+}
+
+.projects .projects-holder .project .info {
+  color: var(--color-text-tertiary);
+}
+
+.projects .projects-holder .project .info h3 {
+  color: var(--color-text-primary);
+  margin: 1.5rem 0 0;
+  font-size: 1.5rem;
+}
+
+.projects .projects-holder .project .info p {
+  line-height: 1.7;
+  margin: 1rem 0;
+}
+
+.projects .projects-holder .project .review {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  margin: 1rem 0;
+}
+
+.projects .projects-holder .project .review a {
+  padding: 10px 20px;
+  border-radius: 15px;
+  font-weight: 500;
+  min-width: 130px;
+  text-align: center;
+}
+
+.projects .projects-holder .project .review .git-code {
+  background-color: var(--color-bg-tertiary);
+  color: white;
+}
+
+.projects .projects-holder .project .review .live-demo {
+  background-color: var(--color-effect);
+  color: black;
 }
 
 @keyframes smooth-right {
