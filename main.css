@@ -165,6 +165,57 @@ body {
   color: var(--color-effect);
 }
 
+@media (max-width: 767px) {
+  a > span:first-child {
+    display: none;
+  }
+}
+
+a:not(nav a) {
+  box-shadow: inset 0px 0px 10px black;
+}
+
+a.main {
+  box-shadow:
+    0px 0px 40px 10px #cae8bd3b,
+    inset 0px 0px 7px black;
+}
+
+@media (min-width: 768px) {
+  a:not(nav a) {
+    transition:
+      opacity 0.1s cubic-bezier(0.075, 0.82, 0.165, 1),
+      transform 0.2s ease-in;
+    height: 64px;
+    overflow: hidden;
+    position: relative;
+  }
+
+  a > span {
+    display: block;
+    transition: all 0.3s ease;
+  }
+
+  a:hover {
+    transform: scale(0.95);
+  }
+
+  a:hover > span:first-child {
+    transform: translateY(-2.2rem);
+    opacity: 0;
+  }
+
+  a:hover > span:last-child {
+    transform: translateY(-1.2rem);
+    opacity: 1;
+  }
+
+  a > span:last-child {
+    transform: translateY(2rem);
+    opacity: 0;
+  }
+}
+
 ul {
   margin: 0;
   padding: 0;
@@ -182,10 +233,15 @@ a {
 
 nav {
   position: fixed;
-  bottom: 25px;
   left: 50%;
   transform: translateX(-50%);
   z-index: 1000;
+}
+
+@media (max-width: 767px) {
+  nav {
+    bottom: 25px;
+  }
 }
 
 @media (min-width: 768px) {
@@ -375,20 +431,32 @@ svg {
   background-color: var(--color-bg-primary);
   outline: 8px solid var(--color-bg-secondary);
   border-radius: 15px;
-  margin-bottom: 11rem;
+  margin-bottom: 16rem;
   position: sticky;
   top: 25px;
 }
 
+@media (min-width: 768px) {
+  .projects .projects-holder .project {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+  }
+}
+
+.projects .projects-holder .project .img {
+  flex: 1;
+}
+
 .projects .projects-holder .project img {
-  width: 100%;
-  max-height: 200px;
   max-width: 100%;
   border-radius: 15px;
 }
 
 .projects .projects-holder .project .info {
   color: var(--color-text-tertiary);
+  flex: 1;
 }
 
 .projects .projects-holder .project .info h3 {
@@ -437,7 +505,7 @@ svg {
 
 @keyframes move-up {
   from {
-    opacity: 0;
+    /* opacity: 0; */
     transform: translateY(40px);
   }
   to {
@@ -449,5 +517,11 @@ svg {
 @keyframes fadein {
   to {
     opacity: 1;
+  }
+}
+
+@keyframes btn-move {
+  top {
+    margin-top: 0px;
   }
 }
