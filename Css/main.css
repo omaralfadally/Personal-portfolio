@@ -32,7 +32,7 @@
   /* حدود وفواصل */
   --color-border: #2a2a2a; /* حدود خفيفة داكنة */
   --color-border-light: #333333; /* حدود أفتح قليلاً */
-  
+
   --main-line-height: 1.7;
 
   /* ظلال (للعناصر المرتفعة) */
@@ -80,14 +80,14 @@ body {
 /* الشاشات الكبيرة جداً (الديسكتوب العريض، >= 1200px) */
 @media (min-width: 1200px) {
   .container {
-    max-width: 1140px;
+    max-width: 1550px;
   }
 }
-/* 
+
 /* الشاشات العملاقة (>= 1400px) */
 /* @media (min-width: 1400px) {
   .container {
-    max-width: 1320px;
+    max-width: calc(100% - 100px);
   }
 } */
 
@@ -179,7 +179,7 @@ a:not(nav a) {
 
 a.main {
   box-shadow:
-    0px 0px 40px 10px #cae8bd3b,
+    0px 10px 40px 1px #cae8bd3b,
     inset 0px 0px 7px black;
 }
 
@@ -293,7 +293,7 @@ svg {
 
 .landing-page {
   min-height: 100dvh;
-  background: var(--color-bg-primary, #000000);
+  background: #0d0d0d;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -424,21 +424,29 @@ svg {
   position: relative;
 }
 
+@media (min-width: 1200px) {
+  .projects .projects-holder {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.5rem;
+  }
+}
+
 .projects .projects-holder .scroll-spacer {
   height: 100dvh;
 }
 
 .projects .projects-holder .project {
-  padding: 0.75rem;
+  padding: 0.3rem;
   background-color: var(--color-bg-primary);
-  outline: 8px solid var(--color-bg-secondary);
+  outline: 7px solid var(--color-bg-secondary);
   border-radius: 15px;
-  margin-bottom: 16rem;
+  margin: 0 0.5rem 16rem;
   position: sticky;
   top: 25px;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 768px) and (max-width: 1199px) {
   .projects .projects-holder .project {
     display: flex;
     align-items: center;
@@ -447,13 +455,44 @@ svg {
   }
 }
 
+@media (min-width: 1200px) {
+  .projects .projects-holder .project {
+    position: static;
+    margin-bottom: 0;
+    outline: none;
+    background-color: #222222;
+    transition: all 0.5s ease-in-out;
+  }
+
+  .projects .projects-holder .project:hover {
+    background-color: white;
+  }
+
+  .projects .projects-holder .project:hover img {
+    transform: scale(1.075);
+  }
+
+  .projects .projects-holder .project .info h3,
+  .projects .projects-holder .project .info p {
+    transition: all 0.5s ease;
+  }
+
+  .projects .projects-holder .project:hover .info h3,
+  .projects .projects-holder .project:hover .info p {
+    color: black;
+  }
+}
+
 .projects .projects-holder .project .img {
   flex: 1;
+  overflow: hidden;
+  border-radius: 15px;
 }
 
 .projects .projects-holder .project img {
   max-width: 100%;
   border-radius: 15px;
+  transition: all 0.4s ease-in;
 }
 
 .projects .projects-holder .project .info {
@@ -498,17 +537,37 @@ svg {
   color: black;
 }
 
-.about {
-  color: var(--color-text-secondary);
-  margin-bottom: 4rem;
+@media (min-width: 1200px) {
+  .projects .projects-holder .project .review a {
+    /* padding: 10px 20px; */
+    min-width: 130px;
+    text-align: center;
+  }
+
+  .projects .projects-holder .project .review .git-code {
+    background-color: var(--color-bg-tertiary);
+    color: white;
+  }
+
+  .projects .projects-holder .project .review .live-demo {
+    background-color: var(--color-effect);
+    color: black;
+  }
 }
 
-.about .container > div {
+.about {
+  color: var(--color-text-secondary);
+  background-color: #222222;
+  padding-bottom: 4rem;
+}
+
+.about .container > div:not(:last-child) {
   margin-bottom: 3.5rem;
 }
 
 .about .bio {
   text-align: center;
+  padding-top: 5rem;
   margin-bottom: 5rem;
 }
 
@@ -526,14 +585,10 @@ svg {
 .about .bio .pro-img {
   width: 240px;
   height: 240px;
-  margin: 4rem auto 2rem;
+  margin: 0 auto 2rem;
   padding: 1.25rem;
-  background-color: #1a1a1a;
+  background-color: #444444;
   box-shadow: 0 0 25px rgba(0, 0, 0, 0.6);
-  background-color: #1a1a1a; /* لون أغمق قليلاً */
-  box-shadow: 
-    inset 0 0 20px rgba(0, 0, 0, 0.8), /* ظل داخلي عميق */
-    0 10px 30px rgba(0, 0, 0, 0.5);  
   overflow: hidden;
   transition: all 0.4s ease-in-out;
   border-radius: 50%;
@@ -549,12 +604,10 @@ svg {
   transition: filter 0.5s ease-in-out;
 }
 
-
 .about .bio .pro-img:hover img {
   filter: grayscale(0%); /* الألوان الأصلية ترجع */
   transform: scale(1.02); /* تكبير بسيط جداً */
 }
-
 
 .about .bio > span {
   display: block;
