@@ -32,6 +32,8 @@
   /* حدود وفواصل */
   --color-border: #2a2a2a; /* حدود خفيفة داكنة */
   --color-border-light: #333333; /* حدود أفتح قليلاً */
+  
+  --main-line-height: 1.7;
 
   /* ظلال (للعناصر المرتفعة) */
   --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.4);
@@ -333,7 +335,7 @@ svg {
 }
 
 .landing-page p {
-  line-height: 1.7;
+  line-height: var(--main-line-height, 1.7);
   color: var(--color-text-tertiary, rgba(255, 255, 255, 0.5));
   margin: 1.5rem 0 2rem;
   font-weight: 400;
@@ -423,7 +425,7 @@ svg {
 }
 
 .projects .projects-holder .scroll-spacer {
-  height: 100vh;
+  height: 100dvh;
 }
 
 .projects .projects-holder .project {
@@ -466,7 +468,7 @@ svg {
 }
 
 .projects .projects-holder .project .info p {
-  line-height: 1.7;
+  line-height: var(--main-line-height, 1.7);
   margin: 1rem 0;
 }
 
@@ -494,6 +496,99 @@ svg {
 .projects .projects-holder .project .review .live-demo {
   background-color: var(--color-effect);
   color: black;
+}
+
+.about {
+  color: var(--color-text-secondary);
+  margin-bottom: 4rem;
+}
+
+.about .container > div {
+  margin-bottom: 3.5rem;
+}
+
+.about .bio {
+  text-align: center;
+  margin-bottom: 5rem;
+}
+
+.about h2,
+.about h3,
+.about strong {
+  color: var(--color-text-primary, #ffffff);
+}
+
+.about h3 {
+  font-size: 1.5rem;
+  margin: 0 0 0.875rem;
+}
+
+.about .bio .pro-img {
+  width: 240px;
+  height: 240px;
+  margin: 4rem auto 2rem;
+  padding: 1.25rem;
+  background-color: #1a1a1a;
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.6);
+  background-color: #1a1a1a; /* لون أغمق قليلاً */
+  box-shadow: 
+    inset 0 0 20px rgba(0, 0, 0, 0.8), /* ظل داخلي عميق */
+    0 10px 30px rgba(0, 0, 0, 0.5);  
+  overflow: hidden;
+  transition: all 0.4s ease-in-out;
+  border-radius: 50%;
+}
+
+.about .bio .pro-img img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: 0 17.5%;
+  filter: grayscale(100%);
+  transition: filter 0.5s ease-in-out;
+}
+
+
+.about .bio .pro-img:hover img {
+  filter: grayscale(0%); /* الألوان الأصلية ترجع */
+  transform: scale(1.02); /* تكبير بسيط جداً */
+}
+
+
+.about .bio > span {
+  display: block;
+  margin: 0 0 0.5rem;
+}
+
+.about .bio h2 {
+  font-size: 2.5rem;
+  margin: 0;
+}
+
+.about .bio p {
+  margin: 1.5rem 0;
+  line-height: var(--main-line-height, 1.7);
+}
+
+.about .bio > a {
+  display: block;
+  margin: 2rem auto 0;
+  background-color: var(--color-effect);
+  color: black;
+  padding: 1rem 1.8rem;
+  border-radius: 15px;
+  width: fit-content;
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+.about .what-ido p {
+  line-height: var(--main-line-height, 1.7);
+}
+
+.about ul li:not(:last-child) {
+  margin-bottom: 1rem;
 }
 
 @keyframes smooth-right {
