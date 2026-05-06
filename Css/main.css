@@ -381,7 +381,7 @@ svg {
   max-width: 300px;
   opacity: 0;
   cursor: pointer;
-  animation: fadein 0.7s 2.75s cubic-bezier(0.755, 0.05, 0.855, 0.06) forwards;
+  animation: fadein-btn 0.7s 2.75s cubic-bezier(0.755, 0.05, 0.855, 0.06) forwards;
 }
 
 @media (min-width: 768px) {
@@ -558,17 +558,26 @@ svg {
 .about {
   color: var(--color-text-secondary);
   background-color: #222222;
-  padding-bottom: 4rem;
+  opacity: 0;
+  transform: translateY(-450px) scale(1.25);
+  animation: move-down 0.6s ease-in forwards;
+}
+
+.about > .container {
+  padding-bottom: 8rem;
 }
 
 .about .container > div:not(:last-child) {
   margin-bottom: 3.5rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .about .bio {
   text-align: center;
   padding-top: 5rem;
+  padding-bottom: 2.5rem;
   margin-bottom: 5rem;
+  position: relative;
 }
 
 .about h2,
@@ -578,20 +587,30 @@ svg {
 }
 
 .about h3 {
-  font-size: 1.5rem;
+  font-size: 2.5rem;
   margin: 0 0 0.875rem;
 }
 
 .about .bio .pro-img {
-  width: 240px;
-  height: 240px;
+  width: fit-content;
+  height: fit-content;
   margin: 0 auto 2rem;
   padding: 1.25rem;
   background-color: #444444;
-  box-shadow: 0 0 25px rgba(0, 0, 0, 0.6);
-  overflow: hidden;
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.8);
   transition: all 0.4s ease-in-out;
   border-radius: 50%;
+}
+
+.about .bio .pro-img > div {
+  width: 180px;
+  height: 180px;
+  overflow: hidden;
+  border-radius: 50%;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .about .bio .pro-img img {
@@ -601,12 +620,12 @@ svg {
   object-fit: cover;
   object-position: 0 17.5%;
   filter: grayscale(100%);
-  transition: filter 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
 }
 
 .about .bio .pro-img:hover img {
   filter: grayscale(0%); /* الألوان الأصلية ترجع */
-  transform: scale(1.02); /* تكبير بسيط جداً */
+  transform: scale(1.05); /* تكبير بسيط جداً */
 }
 
 .about .bio > span {
@@ -614,8 +633,18 @@ svg {
   margin: 0 0 0.5rem;
 }
 
+.about .bio > span:first-of-type {
+  animation: fadeout 6s infinite ease;
+}
+
+.about .bio > span:last-of-type {
+  opacity: 0;
+animation: fadein 6s 1.94s infinite ease backwards;
+  
+}
+
 .about .bio h2 {
-  font-size: 2.5rem;
+  font-size: 3rem;
   margin: 0;
 }
 
@@ -640,9 +669,96 @@ svg {
   line-height: var(--main-line-height, 1.7);
 }
 
-.about ul li:not(:last-child) {
-  margin-bottom: 1rem;
+.proficiencies > div {
+  display: flex;
+padding: 2rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
+
+.proficiencies h4 {
+  width: 45%;
+}
+
+.proficiencies ul {
+  flex: 1;
+}
+
+.proficiencies h4 {
+  margin: 0;
+  color: white;
+  font-size: 1.15rem;
+}
+
+.about .proficiencies ul li:not(:last-child) {
+  padding-bottom: 1rem;
+}
+
+.about .lets-talk {
+  background-color: white;
+  color: black;
+  padding: 8rem 2rem;
+  text-align: center;
+  position: relative;
+}
+
+.about .lets-talk .available {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 120px;
+  width: 120px;
+  border-radius: 50%;
+  background-color: black;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  position: absolute;
+  right: 30px;
+  top: -92.5;
+}
+
+.about .lets-talk .available svg {
+  width: 22px;
+}
+
+.about .lets-talk .available .circle-text {
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.9);
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: spin 15s infinite linear alternate;
+}
+
+.about .lets-talk > span {
+  display: block;
+  font-size: 3.5rem;
+  font-weight: 600;
+  letter-spacing: -1;
+  margin: 2rem 0;
+}
+
+.about .lets-talk > p {
+  line-height: var(main-line-height);
+  font-size: 1.5rem;
+  margin: 0 0 3rem;
+}
+
+.about .lets-talk > a {
+  padding: 1rem 2rem;
+  border-radius: 15px;
+  background: #222222;
+  color: white;
+  font-size: 1rem;
+  font-weight: 600;
+  box-shadow: inset 0 -5px
+  0 0 rgba(255, 255, 255, 0.3
+  );
+}
+
 
 @keyframes smooth-right {
   to {
@@ -653,7 +769,6 @@ svg {
 
 @keyframes move-up {
   from {
-    /* opacity: 0; */
     transform: translateY(40px);
   }
   to {
@@ -662,8 +777,49 @@ svg {
   }
 }
 
-@keyframes fadein {
+@keyframes move-down {
   to {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  
+  }
+}
+
+@keyframes fadein-btn {
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadein {
+  1% {
+    opacity: 1;
+  }
+  45% {
+    opacity: 1;
+  }
+  65% {
+   opacity: 0; 
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes fadeout {
+  29% {
+    opacity: 1;
+  }
+  44% {
+    opacity: 0;
+  }
+  83% {
+    opacity: 0;
+  }
+  84% {
+   opacity: 1; 
+  }
+  100% {
     opacity: 1;
   }
 }
@@ -673,3 +829,10 @@ svg {
     margin-top: 0px;
   }
 }
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
