@@ -1,15 +1,14 @@
 * {
   box-sizing: border-box;
   font-family: "Cause", cursive;
-
 }
 
 /* ===== Light Mode (Default) ===== */
 :root {
   /* خلفيات */
   --color-bg-primary: #222222; /* الخلفية الرئيسية (البيج كاملة) */
-  --color-bg-secondary: #141414; /* خلفية الأقسام المختلفة */
-  --color-bg-tertiary: #1c1c1c; /* خلفية البطاقات والعناصر المرتفعة */
+  --color-bg-secondary: #0a0a0a; /* خلفية الأقسام المختلفة */
+  --color-bg-tertiary: #0a0a0a; /* خلفية البطاقات والعناصر المرتفعة */
 
   /* نصوص */
   --color-text-primary: #ffffff; /* النص الأساسي (عناوين وفقرات رئيسية) */
@@ -47,56 +46,27 @@
 
 body {
   background: var(--color-bg-primary, #222222);
-   color: var(--color-text-secondary);
+  color: var(--color-text-secondary);
 }
 
 .container {
-  width: 100%;
   padding-right: 1rem;
   padding-left: 1rem;
   margin-right: auto;
   margin-left: auto;
 }
 
-/* الشاشات الصغيرة (الموبايل العريض، >= 576px) */
-@media (min-width: 576px) {
-  .container {
-    max-width: 540px;
-  }
-}
-
-/* الشاشات المتوسطة (التابلت، >= 768px) */
-@media (min-width: 768px) {
-  .container {
-    max-width: 720px;
-  }
-}
-
-/* الشاشات الكبيرة (الديسكتوب، >= 992px) */
-@media (min-width: 992px) {
-  .container {
-    max-width: 960px;
-  }
-}
-
 /* الشاشات الكبيرة جداً (الديسكتوب العريض، >= 1200px) */
 @media (min-width: 1200px) {
   .container {
-    max-width: 1550px;
+    max-width: 1632px;
   }
 }
-
-/* الشاشات العملاقة (>= 1400px) */
-/* @media (min-width: 1400px) {
-  .container {
-    max-width: calc(100% - 100px);
-  }
-} */
 
 .main-header {
   display: block;
   color: var(--color-text-primary, #ffffff);
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: #0a0a0a;
   font-weight: 500;
   font-size: 1.1rem;
   width: fit-content;
@@ -113,8 +83,8 @@ body {
 
 @media (min-width: 768px) {
   .main-header {
-    font-size: 2.5rem;
-    margin: 6rem auto;
+    font-size: 1.25rem;
+    margin: 0 auto 3rem;
     transform: translateX(-300px);
     animation: smooth-right 1.5s 1s cubic-bezier(0.075, 0.82, 0.165, 1) forwards;
   }
@@ -148,13 +118,14 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 1rem;
 }
 
 .third-header {
   color: var(--color-text-secondary, rgba(255, 255, 255, 0.75));
   font-size: 1.2rem;
+  width: fit-content;
 }
+
 .third-header > span {
   color: var(--color-text-primary, #ffffff);
 }
@@ -408,7 +379,7 @@ svg {
 }
 
 .landing-page > div .buttons a:last-child {
-  background-color: var(--color-bg-tertiary, #1c1c1c);
+  background-color: var(--color-bg-tertiary, #0a0a0a);
   color: var(--color-text-primary, #ffffff);
 }
 
@@ -422,47 +393,54 @@ svg {
   height: 300dvh;
 }
 
-.projects .projects-holder {
-  margin-top: 2rem;
-  position: relative;
+.projects > .container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
 }
 
-@media (min-width: 1200px) {
+@media (min-width: 809px) {
+  .projects > .container {
+    gap: 2.5rem;
+  }
+
+  .projects .second-header .third-header {
+    font-size: 1.9rem;
+  }
+}
+
+.projects .second-header > a {
+  height: fit-content;
+}
+
+@media (min-width: 809px) {
   .projects .projects-holder {
+    position: relative;
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
     gap: 0.5rem;
   }
 }
 
-.projects .projects-holder .scroll-spacer {
-  height: 100dvh;
+@media (min-width: 1110px) {
+  .projects .projects-holder {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 .projects .projects-holder .project {
   padding: 0.4rem;
-  background-color: black;
+  background-color: var(--color-bg-secondary);
   border-radius: 15px;
   margin: 0 0 16rem;
   position: sticky;
   top: 25px;
 }
 
-@media (min-width: 768px) and (max-width: 1199px) {
-  .projects .projects-holder .project {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 2rem;
-  }
-}
-
-@media (min-width: 1200px) {
+@media (min-width: 810px) {
   .projects .projects-holder .project {
     position: static;
     margin-bottom: 0;
-    outline: none;
-    background-color: #222222;
     transition: all 0.5s ease-in-out;
   }
 
@@ -551,6 +529,10 @@ svg {
     background-color: var(--color-effect);
     color: black;
   }
+}
+
+.projects .projects-holder .scroll-spacer {
+  height: 100dvh;
 }
 
 .about {
@@ -694,9 +676,14 @@ svg {
 
 .about .lets-talk {
   background-color: white;
-  color: black;
+  color: var(--color-bg-secondary);
   padding: 6rem 2rem;
   text-align: center;
+}
+
+.about .lets-talk > div {
+  max-width: 600px;
+  margin: 0 auto;
   position: relative;
 }
 
@@ -718,8 +705,8 @@ svg {
   background-color: black;
   border: 1px solid rgba(255, 255, 255, 0.5);
   position: absolute;
-  right: 30px;
-  top: -60px;
+  right: 10px;
+  top: -156px;
 }
 
 .about .lets-talk .available svg {
@@ -727,7 +714,7 @@ svg {
 }
 
 .about .lets-talk .available .circle-text {
-  font-size: 0.75rem;
+  font-size: 0.65rem;
   color: rgba(255, 255, 255, 0.9);
   position: absolute;
   top: 0;
@@ -740,7 +727,7 @@ svg {
   animation: spin 15s infinite linear alternate;
 }
 
-.about .lets-talk > span {
+.about .lets-talk .head {
   display: block;
   font-size: 3.5rem;
   font-weight: 600;
@@ -756,8 +743,12 @@ svg {
 
 .about .lets-talk .getin-touch > a {
   padding: 1rem 2rem;
+  display: block;
+  margin: 1rem auto 0;
+  width: fit-content;
+  height: fit-content;
   border-radius: 15px;
-  background: #222222;
+  background: var(--color-bg-secondary);
   color: white;
   font-size: 1rem;
   font-weight: 600;
@@ -766,23 +757,26 @@ svg {
 
 .about .lets-talk .getin-touch {
   position: relative;
+  width: fit-content;
+  margin: 0 auto;
 }
 
 .about .lets-talk .getin-touch .arrow svg {
   width: 60px;
   position: absolute;
-  right: 10px;
+  right: -60px;
   top: 50%;
   transform: translateY(-50%) rotate(-90deg);
 }
 
 .about .lets-talk .together {
   font-family: "Caveat", sans-serif;
-  transform: rotate(-15deg);
   position: absolute;
-  bottom: -15px;
-  right: 10px;
+  right: -100px;
+  top: 90%;
+  transform: translateY(-50%) rotate(-15deg);
   line-height: 0.85;
+  font-size: 1.25rem;
 }
 
 @keyframes smooth-right {
