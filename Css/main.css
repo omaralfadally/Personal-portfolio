@@ -1,13 +1,13 @@
 * {
   box-sizing: border-box;
   font-family: "Cause", cursive;
-  /* --framer-font-family: "Caveat", sans-serif; */
+
 }
 
 /* ===== Light Mode (Default) ===== */
 :root {
   /* خلفيات */
-  --color-bg-primary: #000000; /* الخلفية الرئيسية (البيج كاملة) */
+  --color-bg-primary: #222222; /* الخلفية الرئيسية (البيج كاملة) */
   --color-bg-secondary: #141414; /* خلفية الأقسام المختلفة */
   --color-bg-tertiary: #1c1c1c; /* خلفية البطاقات والعناصر المرتفعة */
 
@@ -46,7 +46,8 @@
 }
 
 body {
-  background: var(--color-bg-primary, #000000);
+  background: var(--color-bg-primary, #222222);
+   color: var(--color-text-secondary);
 }
 
 .container {
@@ -95,7 +96,7 @@ body {
 .main-header {
   display: block;
   color: var(--color-text-primary, #ffffff);
-  background-color: rgba(255, 255, 255, 0.06);
+  background-color: rgba(0, 0, 0, 0.5);
   font-weight: 500;
   font-size: 1.1rem;
   width: fit-content;
@@ -338,7 +339,6 @@ svg {
 
 .landing-page p {
   line-height: var(--main-line-height, 1.7);
-  color: var(--color-text-tertiary, rgba(255, 255, 255, 0.5));
   margin: 1.5rem 0 2rem;
   font-weight: 400;
 }
@@ -440,9 +440,8 @@ svg {
 }
 
 .projects .projects-holder .project {
-  padding: 0.3rem;
-  background-color: var(--color-bg-primary);
-  outline: 7px solid var(--color-bg-secondary);
+  padding: 0.4rem;
+  background-color: black;
   border-radius: 15px;
   margin: 0 0 16rem;
   position: sticky;
@@ -500,7 +499,7 @@ svg {
 
 .projects .projects-holder .project .info {
   color: var(--color-text-tertiary);
-  flex: 1;
+  display: flex;
 }
 
 .projects .projects-holder .project .info h3 {
@@ -522,22 +521,19 @@ svg {
   margin: 1rem 0;
 }
 
-.projects .projects-holder .project .review a {
-  padding: 10px 20px;
-  border-radius: 15px;
+.projects .projects-holder .project .review {
+  padding: 0.75rem 1.5rem;
+  border-radius: 12px;
   font-weight: 500;
-  min-width: 130px;
+  width: fit-content;
   text-align: center;
+  display: block;
+  margin-bottom: 1rem;
 }
 
-.projects .projects-holder .project .review .git-code {
-  background-color: var(--color-bg-tertiary);
+.projects .projects-holder .project .review {
+  background-color: #333333;
   color: white;
-}
-
-.projects .projects-holder .project .review .live-demo {
-  background-color: var(--color-effect);
-  color: black;
 }
 
 @media (min-width: 1200px) {
@@ -559,7 +555,6 @@ svg {
 
 .about {
   color: var(--color-text-secondary);
-  background-color: #222222;
   opacity: 0;
   transform: translateY(-450px) scale(1.25);
   animation: move-down 0.6s ease-in forwards;
@@ -631,7 +626,11 @@ svg {
 }
 
 .about .bio > span {
-  display: block;
+  position: absolute;
+  left: 50%;
+  top: 44.5%;
+  transform: translate(-50%, -50%);
+  margin-bottom: 30px;
 }
 
 .about .bio > span:first-of-type {
@@ -640,8 +639,6 @@ svg {
 
 .about .bio > span:last-of-type {
   opacity: 0;
-  position: relative;
-  top: -18px;
   animation: fadein 6s 1.94s infinite ease backwards;
 }
 
@@ -698,9 +695,17 @@ svg {
 .about .lets-talk {
   background-color: white;
   color: black;
-  padding: 8rem 2rem;
+  padding: 6rem 2rem;
   text-align: center;
   position: relative;
+}
+
+.about .lets-talk .writing {
+  margin: 0 0 -1.5rem;
+}
+
+.about .lets-talk .writing svg {
+  width: 100px;
 }
 
 .about .lets-talk .available {
@@ -714,7 +719,7 @@ svg {
   border: 1px solid rgba(255, 255, 255, 0.5);
   position: absolute;
   right: 30px;
-  top: -92.5;
+  top: -60px;
 }
 
 .about .lets-talk .available svg {
@@ -740,16 +745,16 @@ svg {
   font-size: 3.5rem;
   font-weight: 600;
   letter-spacing: -1;
-  margin: 2rem 0;
+  margin: 0 0 2rem;
 }
 
 .about .lets-talk > p {
-  line-height: var(main-line-height);
-  font-size: 1.5rem;
+  line-height: var(--main-line-height);
+  font-size: 1.4rem;
   margin: 0 0 3rem;
 }
 
-.about .lets-talk > a {
+.about .lets-talk .getin-touch > a {
   padding: 1rem 2rem;
   border-radius: 15px;
   background: #222222;
@@ -757,6 +762,27 @@ svg {
   font-size: 1rem;
   font-weight: 600;
   box-shadow: inset 0 -5px 0 0 rgba(255, 255, 255, 0.3);
+}
+
+.about .lets-talk .getin-touch {
+  position: relative;
+}
+
+.about .lets-talk .getin-touch .arrow svg {
+  width: 60px;
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%) rotate(-90deg);
+}
+
+.about .lets-talk .together {
+  font-family: "Caveat", sans-serif;
+  transform: rotate(-15deg);
+  position: absolute;
+  bottom: -15px;
+  right: 10px;
+  line-height: 0.85;
 }
 
 @keyframes smooth-right {
