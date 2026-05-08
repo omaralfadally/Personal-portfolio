@@ -121,13 +121,19 @@ body {
   gap: 1rem;
 }
 
-.third-header {
+.second-header .third-header {
   color: var(--color-text-secondary, rgba(255, 255, 255, 0.75));
   font-size: 1.2rem;
   width: fit-content;
 }
 
-.third-header > span {
+@media (min-width: 768px) {
+  .second-header .third-header {
+    font-size: 1.5rem;
+  }
+}
+
+.second-header .third-header > span {
   color: var(--color-text-primary, #ffffff);
 }
 
@@ -140,11 +146,13 @@ body {
 
 .second-header > a {
   color: var(--color-effect);
+  box-shadow: none;
+  transition: all 0.1s ease-in;
 }
 
-@media (max-width: 767px) {
-  a > span:first-child {
-    display: none;
+@media (min-width: 768px) {
+  .second-header > a:hover {
+    color: white;
   }
 }
 
@@ -156,6 +164,12 @@ a.main {
   box-shadow:
     0px 10px 40px 1px #cae8bd3b,
     inset 0px 0px 7px black;
+}
+
+@media (max-width: 767px) {
+  a > span:first-child {
+    display: none;
+  }
 }
 
 @media (min-width: 768px) {
@@ -390,10 +404,6 @@ svg {
   }
 }
 
-.projects {
-  height: 300dvh;
-}
-
 .projects > .container {
   display: flex;
   flex-direction: column;
@@ -403,10 +413,6 @@ svg {
 @media (min-width: 809px) {
   .projects > .container {
     gap: 2.5rem;
-  }
-
-  .projects .second-header .third-header {
-    font-size: 1.9rem;
   }
 }
 
@@ -461,12 +467,6 @@ svg {
   .projects .projects-holder .project .info p {
     transition: all 0.5s ease;
   }
-
-  .projects .projects-holder .project:hover .info h3,
-  .projects .projects-holder .project:hover .info p {
-    color: var(--color-bg-secondary);
-    width: fit-content;
-  }
 }
 
 .projects .projects-holder .project .img {
@@ -500,11 +500,44 @@ svg {
   align-self: flex-end;
 }
 
+.projects .projects-holder .project .info .heading {
+  height: 18.5px;
+}
+
+.projects .projects-holder .project .info .heading h3:first-child {
+  position: relative;
+  opacity: 1;
+  top: 0;
+  transition: all 0.5s ease;
+  color: white;
+}
+
+.projects .projects-holder .project:hover .info .heading h3:first-child {
+  opacity: 0;
+  top: -13px;
+}
+
+.projects .projects-holder .project .info .heading h3:last-child {
+  position: relative;
+  opacity: 0;
+  top: -8px;
+  transition: all 0.5s ease;
+  color: var(--color-bg-secondary);
+}
+
+.projects .projects-holder .project:hover .info .heading h3:last-child {
+  opacity: 1;
+  top: -18.5px;
+}
+
 .projects .projects-holder .project .info h3 {
   color: var(--color-text-primary);
   margin: 0;
   font-size: 1rem;
-  height: fit-content;
+}
+
+.projects .projects-holder .project .info h3 > span {
+  display: block;
 }
 
 .projects .projects-holder .project .info p {
@@ -522,12 +555,13 @@ svg {
   color: white;
 }
 
-@media (min-width: 1200px) {
-  .projects .projects-holder .project .review a {
-    min-width: 130px;
-    text-align: center;
+@media (min-width: 768px) {
+  .projects .projects-holder .project .review {
+    display: none;
   }
+}
 
+@media (min-width: 1200px) {
   .projects .projects-holder .project .review .git-code {
     background-color: var(--color-bg-tertiary);
     color: white;
@@ -539,7 +573,11 @@ svg {
   }
 }
 
-.projects .projects-holder > p {
+.projects .projects-holder .see-more-holder {
+  grid-column: span 2;
+}
+
+.projects .projects-holder .see-more-text {
   text-align: center;
   margin: 3rem auto 1rem;
   font-size: 1.15rem;
@@ -563,6 +601,12 @@ svg {
   background-color: var(--color-bg-secondary);
   color: white;
   box-shadow: inset 0 -4px 0 0 rgba(255, 255, 255, 0.35);
+}
+
+@media (min-width: 768px) {
+  .projects .projects-holder .see-more-text {
+    font-size: 1.5rem;
+  }
 }
 
 .about {
@@ -636,19 +680,22 @@ svg {
   transform: scale(1.05); /* تكبير بسيط جداً */
 }
 
-.about .bio > span {
-  position: absolute;
-  left: 50%;
-  top: 44.5%;
-  transform: translate(-50%, -50%);
-  margin-bottom: 30px;
+.about .bio .header {
+  position: relative;
 }
 
-.about .bio > span:first-of-type {
+.about .bio .header > span {
+  position: absolute;
+  left: 50%;
+  top: -14px;
+  transform: translate(-50%, -50%);
+}
+
+.about .bio .header > span:first-of-type {
   animation: fadeout 6s infinite ease;
 }
 
-.about .bio > span:last-of-type {
+.about .bio .header > span:last-of-type {
   opacity: 0;
   animation: fadein 6s 1.94s infinite ease backwards;
 }
