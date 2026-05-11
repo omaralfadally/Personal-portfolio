@@ -1,327 +1,440 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Contact - Omar Al-Fadaly</title>
-    
-    <!-- خطوط Google -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cause:wght@100..900&display=swap" rel="stylesheet">
-    
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cause:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
+
     <style>
-        /* ===== متغيرات الألوان ===== */
-        :root {
-            --color-bg-primary: #222222;
-            --color-bg-secondary: #0a0a0a;
-            --color-text-primary: #ffffff;
-            --color-text-secondary: rgba(255, 255, 255, 0.75);
-            --color-text-tertiary: rgba(255, 255, 255, 0.5);
-            --color-effect: #cae8bd;
-            --color-accent: #2b7fff;
-            --main-line-height: 1.7;
-            --color-border: rgba(255, 255, 255, 0.08);
+      :root {
+        --color-bg-primary: #222222;
+        --color-bg-secondary: #0a0a0a;
+        --color-text-primary: #ffffff;
+        --color-text-secondary: rgba(255, 255, 255, 0.75);
+        --color-text-tertiary: rgba(255, 255, 255, 0.5);
+        --color-effect: #cae8bd;
+        --color-accent: #2b7fff;
+        --main-line-height: 1.7;
+        --color-border: rgba(255, 255, 255, 0.08);
+      }
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        font-family: "Cause", cursive;
+        background-color: var(--color-bg-primary);
+        color: var(--color-text-secondary);
+        line-height: var(--main-line-height);
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .contact-page {
+        width: 100%;
+        max-width: 1000px;
+        margin: 0 auto;
+        padding: 4rem 1.5rem;
+      }
+
+      /* ===== التخطيط الشبكي ===== */
+      .contact-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+      }
+
+      @media (min-width: 768px) {
+        .contact-grid {
+          grid-template-columns: 1fr 1fr;
+          gap: 1.5rem;
         }
-        
-        /* ===== التصفير الأساسي ===== */
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
+      }
+
+      /* ===== البوكس المشترك ===== */
+      .contact-box {
+        background-color: var(--color-bg-secondary);
+        border-radius: 24px;
+        padding: 3rem 2rem;
+        display: flex;
+        flex-direction: column;
+      }
+
+      /* ===== البوكس الأول: العنوان + الإيميل ===== */
+      .contact-info {
+        justify-content: center;
+        text-align: center;
+      }
+
+      .contact-header {
+        margin-bottom: 3rem;
+      }
+
+      .contact-header h2 {
+        color: var(--color-text-primary);
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+      }
+
+      .contact-header p {
+        color: var(--color-text-tertiary);
+        font-size: 1rem;
+        max-width: 400px;
+        margin: 0 auto;
+      }
+
+      /* ===== قسم الإيميل ===== */
+      .email-section {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+      }
+
+      .email-icon-only {
+        width: 40px;
+        height: 40px;
+        color: var(--color-effect);
+        flex-shrink: 0;
+      }
+
+      .email-label {
+        color: var(--color-text-tertiary);
+        font-size: 0.9rem;
+      }
+
+      .email-link {
+        color: var(--color-text-primary);
+        font-size: 1.2rem;
+        font-weight: 600;
+        text-decoration: none;
+        transition: color 0.3s;
+      }
+
+      .email-link:hover {
+        color: var(--color-effect);
+      }
+
+      /* ===== البوكس الثاني: الفورم + السوشيال ===== */
+      .contact-form-wrapper {
+        justify-content: center;
+      }
+
+      .form-header {
+        color: var(--color-text-primary);
+        font-size: 1.3rem;
+        margin-bottom: 1.5rem;
+        text-align: center;
+      }
+
+      .contact-form {
+        display: flex;
+        flex-direction: column;
+        gap: 1.2rem;
+      }
+
+      .form-group {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+      }
+
+      .form-group label {
+        color: var(--color-text-primary);
+        font-size: 0.9rem;
+        font-weight: 500;
+      }
+
+      .input-wrapper {
+        position: relative;
+        display: flex;
+        align-items: center;
+      }
+
+      .input-wrapper .input-icon {
+        position: absolute;
+        left: 1rem;
+        width: 18px;
+        height: 18px;
+        color: var(--color-text-tertiary);
+        pointer-events: none;
+        transition: color 0.3s;
+      }
+
+      .input-wrapper input,
+      .input-wrapper textarea {
+        width: 100%;
+        background-color: rgba(255, 255, 255, 0.04);
+        border: 1px solid var(--color-border);
+        border-radius: 12px;
+        padding: 0.9rem 1rem 0.9rem 2.8rem;
+        color: var(--color-text-primary);
+        font-family: "Cause", cursive;
+        font-size: 0.95rem;
+        transition: border-color 0.3s;
+        outline: none;
+      }
+
+      .input-wrapper textarea {
+        padding-top: 1rem;
+        resize: vertical;
+        min-height: 100px;
+      }
+
+      .input-wrapper input:focus,
+      .input-wrapper textarea:focus {
+        border-color: var(--color-effect);
+      }
+
+      /* الأيقونة تتحول للأبيض عند التركيز */
+      .input-wrapper:focus-within .input-icon {
+        color: var(--color-text-primary);
+      }
+
+      .submit-btn {
+        background-color: var(--color-effect);
+        color: #000000;
+        border: none;
+        border-radius: 12px;
+        padding: 1rem;
+        font-family: "Cause", cursive;
+        font-size: 1.1rem;
+        font-weight: 700;
+        cursor: pointer;
+        transition: all 0.3s;
+        margin-top: 0.5rem;
+      }
+
+      .submit-btn:hover {
+        opacity: 0.9;
+        transform: translateY(-2px);
+        box-shadow: 0 8px 25px rgba(202, 232, 189, 0.3);
+      }
+
+      /* ===== السوشيال ميديا ===== */
+      .social-links {
+        display: flex;
+        justify-content: center;
+        gap: 1.5rem;
+        margin-top: 2rem;
+        padding-top: 1.5rem;
+        border-top: 1px solid var(--color-border);
+      }
+
+      .social-link {
+        color: var(--color-text-tertiary);
+        text-decoration: none;
+        transition:
+          color 0.3s,
+          transform 0.3s;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 44px;
+        height: 44px;
+        border-radius: 50%;
+      }
+
+      .social-link:hover {
+        color: var(--color-effect);
+        transform: translateY(-3px);
+      }
+
+      .social-link svg {
+        width: 22px;
+        height: 22px;
+      }
+
+      @media (max-width: 600px) {
+        .contact-box {
+          padding: 2rem 1.2rem;
         }
-        
-        body {
-            font-family: "Cause", cursive;
-            background-color: var(--color-bg-primary);
-            color: var(--color-text-secondary);
-            line-height: var(--main-line-height);
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        
-        /* ===== الحاوية الرئيسية ===== */
-        .contact-page {
-            width: 100%;
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 4rem 1.5rem;
-        }
-        
-        .contact-container {
-            background-color: var(--color-bg-secondary);
-            border-radius: 24px;
-            padding: 3rem 2rem;
-        }
-        
-        /* ===== العنوان الرئيسي ===== */
-        .contact-header {
-            text-align: center;
-            margin-bottom: 3rem;
-        }
-        
         .contact-header h2 {
-            color: var(--color-text-primary);
-            font-size: 3rem;
-            margin-bottom: 1rem;
+          font-size: 2rem;
         }
-        
-        .contact-header p {
-            color: var(--color-text-tertiary);
-            font-size: 1.1rem;
-            max-width: 500px;
-            margin: 0 auto;
-        }
-        
-        /* ===== بطاقة الإيميل (تصميم جديد) ===== */
-        .email-card {
-            display: flex;
-            align-items: center;
-            gap: 1.2rem;
-            border: 1px solid transparent;
-            border-radius: 16px;
-            padding: 1rem;
-            margin-bottom: 2.5rem;
-            transition: border-color 0.3s;
-        }
-        
-        .email-card:hover {
-            border-color: var(--color-effect);
-        }
-        
-        .email-icon {
-            width: 48px;
-            height: 48px;
-            border-radius: 50%;
-            background-color: var(--color-effect);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-shrink: 0;
-        }
-        
-        .email-icon svg {
-            width: 22px;
-            height: 22px;
-            color: #000000;
-        }
-        
-        .email-info h3 {
-            color: var(--color-text-primary);
-            font-size: 1rem;
-            margin-bottom: 0.2rem;
-        }
-        
-        .email-info a {
-            color: var(--color-effect);
-            font-size: 1.4rem;
-            font-weight: 600;
-            text-decoration: none;
-            transition: opacity 0.3s;
-        }
-        
-        .email-info a:hover {
-            opacity: 0.8;
-        }
-        
-        /* ===== عنوان الاستمارة ===== */
-        .form-header {
-            color: var(--color-text-primary);
-            font-size: 1.3rem;
-            margin-bottom: 1.5rem;
-            text-align: center;
-        }
-        
-        /* ===== استمارة التواصل ===== */
-        .contact-form {
-            display: flex;
-            flex-direction: column;
-            gap: 1.2rem;
-        }
-        
-        .form-group {
-            display: flex;
-            flex-direction: column;
-            gap: 0.5rem;
-        }
-        
-        .form-group label {
-            color: var(--color-text-primary);
-            font-size: 0.9rem;
-            font-weight: 500;
-        }
-        
-        .form-group input,
-        .form-group textarea {
-            background-color: rgba(255, 255, 255, 0.04);
-            border: 1px solid var(--color-border);
-            border-radius: 12px;
-            padding: 1rem;
-            color: var(--color-text-primary);
-            font-family: "Cause", cursive;
-            font-size: 1rem;
-            transition: border-color 0.3s;
-            outline: none;
-        }
-        
-        .form-group input:focus,
-        .form-group textarea:focus {
-            border-color: var(--color-effect);
-        }
-        
-        .form-group textarea {
-            resize: vertical;
-            min-height: 100px;
-        }
-        
-        .submit-btn {
-            background-color: var(--color-effect);
-            color: #000000;
-            border: none;
-            border-radius: 12px;
-            padding: 1rem;
-            font-family: "Cause", cursive;
-            font-size: 1.1rem;
-            font-weight: 700;
-            cursor: pointer;
-            transition: all 0.3s;
-            margin-top: 0.5rem;
-        }
-        
-        .submit-btn:hover {
-            opacity: 0.9;
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(202, 232, 189, 0.3);
-        }
-        
-        /* ===== ملحوظة الاستمارة ===== */
-        .form-note {
-            text-align: center;
-            color: var(--color-text-tertiary);
-            font-size: 0.8rem;
-            margin-top: 1rem;
-        }
-        
-        /* ===== السوشيال ميديا ===== */
-        .social-links {
-            display: flex;
-            justify-content: center;
-            gap: 1.5rem;
-            margin-top: 2.5rem;
-            padding-top: 2rem;
-            border-top: 1px solid var(--color-border);
-        }
-        
-        .social-link {
-            color: var(--color-text-tertiary);
-            text-decoration: none;
-            font-size: 1rem;
-            font-weight: 500;
-            transition: color 0.3s;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-        
-        .social-link:hover {
-            color: var(--color-effect);
-        }
-        
-        .social-link svg {
-            width: 20px;
-            height: 20px;
-        }
-        
-        /* ===== التجاوب ===== */
-        @media (max-width: 600px) {
-            .contact-container {
-                padding: 2rem 1.2rem;
-            }
-            
-            .contact-header h2 {
-                font-size: 2.2rem;
-            }
-            
-            .email-card {
-                flex-direction: column;
-                text-align: center;
-            }
-            
-            .email-info a {
-                font-size: 1.1rem;
-            }
-        }
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <section class="contact-page">
-        <div class="contact-container">
-            
-            <!-- العنوان الرئيسي -->
-            <div class="contact-header">
-                <h2>Let's talk</h2>
-                <p>Got a project in mind? I'm always open to discussing new ideas and opportunities.</p>
-            </div>
-            
-            <!-- بطاقة الإيميل -->
-            <div class="email-card">
-                <div class="email-icon">
-                    <svg viewBox="0 -3.5 32 32" xmlns="http://www.w3.org/2000/svg" fill="currentColor">
-                        <path d="M430,275.916 L426.684,273.167 L415.115,285.01 L444.591,285.01 L433.235,273.147 L430,275.916 L430,275.916 Z M434.89,271.89 L445.892,283.329 C445.955,283.107 446,282.877 446,282.634 L446,262.862 L434.89,271.89 L434.89,271.89 Z M414,262.816 L414,282.634 C414,282.877 414.045,283.107 414.108,283.329 L425.147,271.927 L414,262.816 L414,262.816 Z M445,261 L415,261 L430,273.019 L445,261 L445,261 Z"/>
-                    </svg>
-                </div>
-                <div class="email-info">
-                    <h3>Email me directly</h3>
-                    <a href="mailto:maroo.omar955@gmail.com">maroo.omar955@gmail.com</a>
-                </div>
-            </div>
-            
-            <!-- عنوان الاستمارة -->
-            <h3 class="form-header">Or drop a message</h3>
-            
-            <!-- استمارة التواصل -->
-            <form class="contact-form" action="#" method="POST">
-                <div class="form-group">
-                    <label for="name">Your Name</label>
-                    <input type="text" id="name" name="name" placeholder="What should I call you?" required>
-                </div>
-                
-                <div class="form-group">
-                    <label for="email">Your Email</label>
-                    <input type="email" id="email" name="email" placeholder="Where can I reach you?" required>
-                </div>
-                
-                <!-- حقل الموضوع الجديد -->
-                <div class="form-group">
-                    <label for="subject">Subject</label>
-                    <input type="text" id="subject" name="subject" placeholder="What's this about?" required>
-                </div>
-                
-                <div class="form-group">
-                    <label for="message">Your Message</label>
-                    <textarea id="message" name="message" placeholder="Tell me about your project..." required></textarea>
-                </div>
-                
-                <button type="submit" class="submit-btn">Send Message</button>
-            </form>
-            
-            <p class="form-note">This form will be activated soon.</p>
-            
-            <!-- روابط السوشيال ميديا -->
-            <div class="social-links">
-                <a href="https://github.com/omaralfadally" class="social-link" target="_blank" rel="noopener">
-                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
-                    GitHub
-                </a>
-                <a href="https://linkedin.com/in/omaralfadally" class="social-link" target="_blank" rel="noopener">
-                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-                    LinkedIn
-                </a>
-            </div>
-            
+      <div class="contact-grid">
+        <!-- البوكس الأول: العنوان + الإيميل -->
+        <div class="contact-box contact-info">
+          <div class="contact-header">
+            <h2>Let's Get In Touch</h2>
+            <p>
+              Got a project in mind? I'm always open to discussing new ideas and
+              opportunities.
+            </p>
+          </div>
+
+          <div class="email-section">
+            <!-- أيقونة البريد -->
+            <svg
+              class="email-icon-only"
+              viewBox="0 0 24 24"
+              fill="currentColor"
+            >
+              <path
+                d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"
+              />
+            </svg>
+            <span class="email-label">Reach out manually to</span>
+            <a href="mailto:omaralfadali@gmail.com" class="email-link"
+              >omaralfadali@gmail.com</a
+            >
+          </div>
         </div>
+
+        <!-- البوكس الثاني: الفورم + السوشيال -->
+        <div class="contact-box contact-form-wrapper">
+          <h3 class="form-header">Or drop a message</h3>
+
+          <form class="contact-form" action="#" method="POST">
+            <div class="form-group">
+              <label for="name">Your Name</label>
+              <div class="input-wrapper">
+                <svg
+                  class="input-icon"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                  <circle cx="12" cy="7" r="4"></circle>
+                </svg>
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  placeholder="What should I call you?"
+                  required
+                />
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="email">Your Email</label>
+              <div class="input-wrapper">
+                <svg class="input-icon" viewBox="0 0 24 24" fill="currentColor">
+                  <path
+                    d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"
+                  />
+                </svg>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  placeholder="Where can I reach you?"
+                  required
+                />
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="subject">Subject</label>
+              <div class="input-wrapper">
+                <svg
+                  class="input-icon"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <path d="M12 5v14M5 12h14"></path>
+                </svg>
+                <input
+                  type="text"
+                  id="subject"
+                  name="subject"
+                  placeholder="What's this about?"
+                  required
+                />
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="message">Your Message</label>
+              <div class="input-wrapper">
+                <svg
+                  class="input-icon"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <path
+                    d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"
+                  ></path>
+                </svg>
+                <textarea
+                  id="message"
+                  name="message"
+                  placeholder="Tell me about your project..."
+                  required
+                ></textarea>
+              </div>
+            </div>
+
+            <button type="submit" class="submit-btn">Send Message</button>
+          </form>
+
+          <div class="social-links">
+            <a
+              href="https://github.com/omaralfadally"
+              class="social-link"
+              target="_blank"
+              rel="noopener"
+              aria-label="GitHub"
+            >
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <path
+                  d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"
+                />
+              </svg>
+            </a>
+            <a
+              href="https://linkedin.com/in/omaralfadally"
+              class="social-link"
+              target="_blank"
+              rel="noopener"
+              aria-label="LinkedIn"
+            >
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <path
+                  d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"
+                />
+              </svg>
+            </a>
+            <a
+              href="https://x.com/omaralfadally"
+              class="social-link"
+              target="_blank"
+              rel="noopener"
+              aria-label="X (Twitter)"
+            >
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <path
+                  d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"
+                />
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
     </section>
-</body>
+  </body>
 </html>

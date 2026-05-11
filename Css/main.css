@@ -44,9 +44,13 @@
   --color-body: var(--color-bg-primary);
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   background: var(--color-bg-primary, #222222);
-  color: var(--color-text-secondary);
+  color: var(--color-text-tertiary);
 }
 
 .container {
@@ -62,6 +66,8 @@ body {
     max-width: 1632px;
   }
 }
+
+/* Headers */
 
 .main-header {
   display: block;
@@ -83,7 +89,7 @@ body {
 
 @media (min-width: 768px) {
   .main-header {
-    font-size: 1.25rem;
+    font-size: 1.1rem;
     margin: 0 auto 3rem;
     transform: translateX(-300px);
     animation: smooth-right 1.5s 1s cubic-bezier(0.075, 0.82, 0.165, 1) forwards;
@@ -156,14 +162,16 @@ body {
   }
 }
 
+/* Headers end */
+
+/* Buttons start */
+
 a:not(nav a) {
   box-shadow: inset 0 -4px 0 0 rgba(255, 255, 255, 0.1);
 }
 
-a.main {
-  box-shadow:
-    0px 10px 40px 1px #cae8bd3b,
-    inset 0px 0px 7px black;
+a.main:hover {
+  box-shadow: 0 8px 25px rgba(202, 232, 189, 0.3);
 }
 
 @media (max-width: 767px) {
@@ -177,7 +185,6 @@ a.main {
     transition:
       opacity 0.1s cubic-bezier(0.075, 0.82, 0.165, 1),
       transform 0.2s ease-in;
-    height: 64px;
     overflow: hidden;
     position: relative;
   }
@@ -187,8 +194,13 @@ a.main {
     transition: all 0.3s ease;
   }
 
-  a:hover {
-    transform: scale(0.95);
+  a:hover:not(nav a) {
+    opacity: 0.9;
+    transform: translateY(-2px);
+  }
+
+  a:active:not(nav a) {
+    transform: scale(0.99);
   }
 
   a:hover > span:first-child {
@@ -206,6 +218,145 @@ a.main {
     opacity: 0;
   }
 }
+
+/* Footer starts */
+
+.lets-talk {
+  background-color: white;
+  color: var(--color-bg-secondary);
+  padding: 6rem 2rem;
+  text-align: center;
+  position: relative;
+}
+
+@media (max-width: 767px) {
+  .lets-talk {
+    padding: 6rem 2rem 8rem;
+  }
+}
+
+.lets-talk > div {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.lets-talk .writing {
+  margin: 0 0 -1.5rem;
+}
+
+.lets-talk .writing svg {
+  width: 100px;
+}
+
+.lets-talk .available {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 120px;
+  width: 120px;
+  border-radius: 50%;
+  background-color: var(--color-bg-secondary);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  position: absolute;
+  right: 30px;
+  top: -60px;
+}
+
+@media (min-width: 768px) {
+  .lets-talk .available {
+    right: 60px;
+  }
+}
+
+@media (min-width: 1400px) {
+  .lets-talk .available {
+    right: 180px;
+  }
+}
+
+.lets-talk .available .circle-icon {
+  height: 22px;
+}
+
+.lets-talk .available svg {
+  width: 22px;
+}
+
+.lets-talk .available .circle-text {
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.9);
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: spin 15s infinite linear alternate;
+}
+
+.lets-talk .head {
+  display: block;
+  font-size: 3.5rem;
+  font-weight: 600;
+  letter-spacing: -1px;
+  margin: 0 0 2rem;
+}
+
+.lets-talk div > p {
+  line-height: var(--main-line-height);
+  font-size: 1.4rem;
+  margin: 0 0 3rem;
+}
+
+@media (min-width: 768px) {
+  .lets-talk .head {
+    font-size: 5.5rem;
+  }
+  .lets-talk div > p {
+    font-size: 1.6rem;
+  }
+}
+
+.lets-talk .getin-touch {
+  position: relative;
+  width: fit-content;
+  margin: 0 auto;
+}
+
+.lets-talk .getin-touch > a {
+  padding: 1rem 2rem;
+  display: block;
+  margin: 1rem auto 0;
+  height: 50px;
+  border-radius: 15px;
+  background: var(--color-bg-secondary);
+  color: white;
+  font-size: 1rem;
+  font-weight: 600;
+  box-shadow: inset 0 -4px 0 0 rgba(255, 255, 255, 0.3);
+}
+
+.lets-talk .getin-touch .arrow svg {
+  width: 60px;
+  position: absolute;
+  right: -60px;
+  top: 50%;
+  transform: translateY(-50%) rotate(-90deg);
+}
+
+.lets-talk .together {
+  font-family: "Caveat", sans-serif;
+  position: absolute;
+  right: -97px;
+  top: 129%;
+  transform: translateY(-50%) rotate(-15deg);
+  line-height: 0.85;
+  font-size: 1.25rem;
+}
+
+/* Footer ends */
 
 ul {
   margin: 0;
@@ -365,6 +516,7 @@ svg {
   margin: 0 auto;
   font-size: 1.1rem;
   width: 70%;
+  height: 64px;
   max-width: 300px;
   opacity: 0;
   cursor: pointer;
@@ -420,6 +572,10 @@ svg {
   height: fit-content;
 }
 
+.projects .projects-holder {
+  padding-bottom: 4.5rem;
+}
+
 @media (min-width: 809px) {
   .projects .projects-holder {
     position: relative;
@@ -435,6 +591,24 @@ svg {
   }
 }
 
+.projects .projects-holder .last-child-holder {
+  position: sticky;
+  top: 25px;
+  grid-column: 1 / -1;
+}
+
+.projects .projects-holder .last-child-holder .inner-wrapper {
+  padding-bottom: 5.45rem;
+  width: 100%;
+  margin: 0 auto;
+}
+
+@media (min-width: 810px) {
+  .projects .projects-holder .last-child-holder .inner-wrapper {
+    width: calc((100% - 0.5rem) / 2);
+  }
+}
+
 .projects .projects-holder .project {
   padding: 0.4rem;
   background-color: var(--color-bg-secondary);
@@ -444,8 +618,9 @@ svg {
   top: 25px;
 }
 
-.projects .projects-holder .project:last-of-type {
+.projects .projects-holder .last-child-project {
   margin: 0;
+  position: static;
 }
 
 @media (min-width: 810px) {
@@ -460,7 +635,8 @@ svg {
   }
 
   .projects .projects-holder .project:hover img {
-    transform: scale(1.075);
+    transform: scale(1.15);
+    filter: blur(2.5px);
   }
 
   .projects .projects-holder .project .info h3,
@@ -478,6 +654,7 @@ svg {
 .projects .projects-holder .project img {
   max-width: 100%;
   border-radius: 15px;
+  transform: scale(1.25);
   transition: all 0.4s ease-in;
 }
 
@@ -536,7 +713,8 @@ svg {
   font-size: 1rem;
 }
 
-.projects .projects-holder .project .info h3 > span {
+.projects .projects-holder .project .info h3 > span,
+.projects .projects-holder .project .info p > span {
   display: block;
 }
 
@@ -548,9 +726,6 @@ svg {
   padding: 6px;
   border-radius: 6px;
   margin: 0;
-}
-
-.projects .projects-holder .project .review {
   background-color: #222222;
   color: white;
 }
@@ -583,7 +758,6 @@ svg {
   font-size: 1.15rem;
   text-transform: capitalize;
   line-height: 1.3;
-  color: rgba(255, 255, 255, 0.75);
 }
 
 .projects .projects-holder .see-more-text > span {
@@ -594,8 +768,9 @@ svg {
 .projects .projects-holder .see-more-btn {
   display: block;
   width: fit-content;
+  height: 60px;
   border-radius: 15px;
-  margin: 0 auto 10.5rem;
+  margin: 0 auto 0;
   padding: 1.25rem 1.5rem;
   font-weight: 600;
   background-color: var(--color-bg-secondary);
@@ -613,6 +788,7 @@ svg {
   opacity: 0;
   transform: translateY(-450px) scale(1.25);
   animation: move-down 0.6s ease-in forwards;
+  padding-top: 15rem;
 }
 
 .about > .container {
@@ -626,7 +802,6 @@ svg {
 
 .about .bio {
   text-align: center;
-  padding-top: 5rem;
   padding-bottom: 2.5rem;
   margin-bottom: 5rem;
   position: relative;
@@ -687,7 +862,7 @@ svg {
 .about .bio .header > span {
   position: absolute;
   left: 50%;
-  top: -14px;
+  top: -12px;
   transform: translate(-50%, -50%);
 }
 
@@ -718,8 +893,8 @@ svg {
   padding: 1rem 1.8rem;
   border-radius: 15px;
   width: fit-content;
-  font-weight: 600;
-  font-size: 1rem;
+  font-weight: 700;
+  font-size: 1.05rem;
 }
 
 .about .what-ido p {
@@ -750,109 +925,311 @@ svg {
   padding-bottom: 1rem;
 }
 
-.about .lets-talk {
-  background-color: white;
-  color: var(--color-bg-secondary);
-  padding: 4rem 2rem;
+.contact {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 15rem 1.5rem 10rem;
+  color: var(--color-text-tertiary);
+}
+
+.contact .contact-grid {
+  display: grid;
+  gap: 1.5rem;
+}
+
+@media (min-width: 992px) {
+  .contact .contact-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.contact .contact-grid .contact-box {
+  background-color: var(--color-bg-secondary);
+  padding: 3rem 2rem;
+  border-radius: 24px;
+  display: flex;
+  flex-direction: column;
+  box-shadow:
+    0 2px 4px rgba(0, 0, 0, 0.4),
+    0 8px 16px rgba(0, 0, 0, 0.5),
+    0 16px 40px rgba(0, 0, 0, 0.6);
+  animation: smooth-up 1.5s cubic-bezier(0.075, 0.82, 0.165, 1) forwards;
+  transform: translateY(500px);
+  opacity: 0;
+}
+
+.contact .contact-grid .contact-box .img-holder {
+  width: 40px;
+  height: 40px;
+  margin: 0 auto;
+}
+
+.contact .contact-grid .contact-box .img-holder img {
+  width: 100%;
+  max-width: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: 50% 20%;
+}
+
+.contact .contact-grid .contact-info {
   text-align: center;
 }
 
-.about .lets-talk > div {
-  max-width: 600px;
-  margin: 0 auto;
-  position: relative;
+.contact .contact-grid .contact-info > div:not(:last-child) {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
 
-.about .lets-talk .writing {
-  margin: 0 0 -1.5rem;
+.contact .contact-grid .contact-box .contact-header {
+  margin: 0.5rem 0 2rem;
+  padding: 1rem 0;
 }
 
-.about .lets-talk .writing svg {
-  width: 100px;
-}
-
-.about .lets-talk .available {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 120px;
-  width: 120px;
-  border-radius: 50%;
-  background-color: black;
-  border: 1px solid rgba(255, 255, 255, 0.5);
-  position: absolute;
-  right: 10px;
-  top: -124px;
-}
-
-.about .lets-talk .available svg {
-  width: 22px;
-}
-
-.about .lets-talk .available .circle-text {
-  font-size: 0.65rem;
-  color: rgba(255, 255, 255, 0.9);
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  animation: spin 15s infinite linear alternate;
-}
-
-.about .lets-talk .head {
-  display: block;
-  font-size: 3.5rem;
-  font-weight: 600;
-  letter-spacing: -1;
+.contact .contact-grid .contact-box .contact-header h2 {
+  font-size: 3rem;
+  color: white;
   margin: 0 0 2rem;
 }
 
-.about .lets-talk div > p {
+@media (min-width: 768px) {
+  .contact .contact-grid .contact-box .contact-header h2 {
+    font-size: 4rem;
+  }
+}
+
+.contact .contact-grid .contact-box .contact-header p {
+  font-size: 1.15rem;
   line-height: var(--main-line-height);
-  font-size: 1.4rem;
-  margin: 0 0 3rem;
 }
 
-.about .lets-talk .getin-touch > a {
-  padding: 1rem 2rem;
-  display: block;
-  margin: 1rem auto 0;
-  width: fit-content;
-  height: fit-content;
-  border-radius: 15px;
-  background: var(--color-bg-secondary);
+.contact .contact-grid .contact-box .contact-header p > b {
   color: white;
-  font-size: 1rem;
-  font-weight: 600;
-  box-shadow: inset 0 -4px 0 0 rgba(255, 255, 255, 0.3);
 }
 
-.about .lets-talk .getin-touch {
+.contact .contact-grid .contact-box .email-section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding-bottom: 2.15rem;
+  margin-bottom: 2rem;
+}
+
+.contact .contact-grid .contact-box .email-section > svg {
+  width: 35px;
+  height: 35px;
+  color: var(--color-effect);
+}
+
+.contact .contact-grid .contact-box .email-section .email-label {
+  margin: 1rem 0;
+  font-size: 0.9rem;
+}
+
+.contact .contact-grid .contact-box .email-section .email-link {
+  font-size: 1.15rem;
+  color: white;
+  transition: all 0.3s ease-in-out;
+  height: fit-content;
+  box-shadow: none;
+}
+
+.contact .contact-grid .contact-box .email-section .email-link:hover {
+  transform: translateY(-2px);
+  color: var(--color-effect);
+  text-decoration: underline;
+}
+
+.contact .contact-grid .contact-box .email-section .email-link:active {
+  transform: scale(0.99);
+}
+
+.contact .contact-grid .contact-box .social-links {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+}
+
+.contact .contact-grid .contact-box .social-links .social-link {
+  height: fit-content;
+  box-shadow: none;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.contact .contact-grid .contact-box .social-links .social-link > svg {
+  width: 22px;
+  height: 22px;
+  transition: all 0.3s ease-in-out;
+}
+
+.contact .contact-grid .contact-box .social-links .social-link:hover > svg {
+  color: var(--color-effect);
+  transform: translateY(-2px);
+}
+
+.contact .contact-grid .contact-box .social-links .social-link:active > svg {
+  transform: scale(0.99);
+}
+
+.contact .contact-grid .contact-form-wrapper h3 {
+  text-transform: capitalize;
+  color: white;
+  margin: 1rem auto 3rem;
+  font-size: 1.5rem;
+}
+
+.contact .contact-grid .contact-form-wrapper .contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.contact .contact-grid .contact-form-wrapper .contact-form .form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.contact .contact-grid .contact-form-wrapper .contact-form .form-group label {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.contact
+  .contact-grid
+  .contact-form-wrapper
+  .contact-form
+  .form-group
+  .input-wrapper {
   position: relative;
-  width: fit-content;
-  margin: 0 auto;
 }
 
-.about .lets-talk .getin-touch .arrow svg {
-  width: 60px;
+.contact
+  .contact-grid
+  .contact-form-wrapper
+  .contact-form
+  .form-group
+  .input-wrapper
+  > svg {
   position: absolute;
-  right: -60px;
+  left: 10px;
   top: 50%;
-  transform: translateY(-50%) rotate(-90deg);
+  transform: translateY(-50%);
+  width: 22px;
+  height: 22px;
 }
 
-.about .lets-talk .together {
-  font-family: "Caveat", sans-serif;
-  position: absolute;
-  right: -97px;
-  top: 129%;
-  transform: translateY(-50%) rotate(-15deg);
-  line-height: 0.85;
-  font-size: 1.25rem;
+.contact
+  .contact-grid
+  .contact-form-wrapper
+  .contact-form
+  .form-group
+  .input-wrapper
+  > input,
+.contact
+  .contact-grid
+  .contact-form-wrapper
+  .contact-form
+  .form-group
+  .input-wrapper
+  > textarea {
+  width: 100%;
+  max-width: 100%;
+  padding: 0.9rem 1rem 0.9rem 2.8rem;
+  border-radius: 15px;
+  background-color: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  outline: none;
+  transition: border-color 0.2s;
+  color: white;
+  caret-color: white;
+  font-size: 0.95rem;
+}
+
+.contact
+  .contact-grid
+  .contact-form-wrapper
+  .contact-form
+  .form-group
+  .input-wrapper
+  > textarea {
+  resize: none;
+  min-height: 150px;
+}
+
+.contact
+  .contact-grid
+  .contact-form-wrapper
+  .contact-form
+  .form-group
+  .input-wrapper
+  > input:focus,
+.contact
+  .contact-grid
+  .contact-form-wrapper
+  .contact-form
+  .form-group
+  .input-wrapper
+  > textarea:focus {
+  border-color: var(--color-effect);
+}
+
+.contact
+  .contact-grid
+  .contact-form-wrapper
+  .contact-form
+  .form-group
+  .input-wrapper:focus-within
+  .input-icon,
+.contact
+  .contact-grid
+  .contact-form-wrapper
+  .contact-form
+  .form-group
+  .input-wrapper:focus-within
+  .input-icon {
+  color: var(--color-effect);
+}
+
+.contact
+  .contact-grid
+  .contact-form-wrapper
+  .contact-form
+  .form-group:last-of-type
+  .input-wrapper
+  > svg {
+  top: 25px;
+}
+
+.contact .contact-grid .contact-form-wrapper .contact-form > button {
+  padding: 1rem;
+  font-size: 1.1rem;
+  font-weight: 700;
+  border-radius: 30px;
+  background-color: var(--color-effect);
+  box-shadow: 0 8px 25px rgba(202, 232, 189, 0.3);
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
+}
+
+.contact .contact-grid .contact-form-wrapper .contact-form > button:hover {
+  transform: translateY(-2px);
+  background-color: white;
+  box-shadow: none;
+}
+
+.contact .contact-grid .contact-form-wrapper .contact-form > button:active {
+  transform: scale(0.99);
 }
 
 @keyframes smooth-right {
@@ -927,5 +1304,12 @@ svg {
 @keyframes spin {
   to {
     transform: rotate(360deg);
+  }
+}
+
+@keyframes smooth-up {
+  to {
+    transform: translateY(0);
+    opacity: 1;
   }
 }

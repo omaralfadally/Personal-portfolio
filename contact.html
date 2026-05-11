@@ -1,18 +1,359 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Contact - Omar Al-Fadaly</title>
+    <link rel="stylesheet" href="Css/normalize.css" />
+    <link rel="stylesheet" href="/Css/framework.css" />
+    <link rel="stylesheet" href="Css/main.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cause:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+      <header>
+    <nav>
+      <ul>
+        <li>
+          <a href="index.html" aria-label="Home"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-6">
+              <path d="M11.47 3.841a.75.75 0 0 1 1.06 0l8.69 8.69a.75.75 0 1 0 1.06-1.061l-8.689-8.69a2.25 2.25 0 0 0-3.182 0l-8.69 8.69a.75.75 0 1 0 1.061 1.06l8.69-8.689Z" />
+              <path d="m12 5.432 8.159 8.159c.03.03.06.058.091.086v6.198c0 1.035-.84 1.875-1.875 1.875H15a.75.75 0 0 1-.75-.75v-4.5a.75.75 0 0 0-.75-.75h-3a.75.75 0 0 0-.75.75V21a.75.75 0 0 1-.75.75H5.625a1.875 1.875 0 0 1-1.875-1.875v-6.198a2.29 2.29 0 0 0 .091-.086L12 5.432Z" />
+            </svg>
+          </a>
+        </li>
+        <li>
+          <a href="about.html" aria-label"about"><svg aria-hidden"true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-6">
+              <path fill-rule="evenodd" d="M4.5 3.75a3 3 0 0 0-3 3v10.5a3 3 0 0 0 3 3h15a3 3 0 0 0 3-3V6.75a3 3 0 0 0-3-3h-15Zm4.125 3a2.25 2.25 0 1 0 0 4.5 2.25 2.25 0 0 0 0-4.5Zm-3.873 8.703a4.126 4.126 0 0 1 7.746 0 .75.75 0 0 1-.351.92 7.47 7.47 0 0 1-3.522.877 7.47 7.47 0 0 1-3.522-.877.75.75 0 0 1-.351-.92ZM15 8.25a.75.75 0 0 0 0 1.5h3.75a.75.75 0 0 0 0-1.5H15ZM14.25 12a.75.75 0 0 1 .75-.75h3.75a.75.75 0 0 1 0 1.5H15a.75.75 0 0 1-.75-.75Zm.75 2.25a.75.75 0 0 0 0 1.5h3.75a.75.75 0 0 0 0-1.5H15Z" clip-rule="evenodd" />
+            </svg>
+          </a>
+        </li>
+        <li>
+          <a href="projects.html"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-6">
+              <path fill-rule="evenodd" d="M7.5 5.25a3 3 0 0 1 3-3h3a3 3 0 0 1 3 3v.205c.933.085 1.857.197 2.774.334 1.454.218 2.476 1.483 2.476 2.917v3.033c0 1.211-.734 2.352-1.936 2.752A24.726 24.726 0 0 1 12 15.75c-2.73 0-5.357-.442-7.814-1.259-1.202-.4-1.936-1.541-1.936-2.752V8.706c0-1.434 1.022-2.7 2.476-2.917A48.814 48.814 0 0 1 7.5 5.455V5.25Zm7.5 0v.09a49.488 49.488 0 0 0-6 0v-.09a1.5 1.5 0 0 1 1.5-1.5h3a1.5 1.5 0 0 1 1.5 1.5Zm-3 8.25a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5Z" clip-rule="evenodd" />
+              <path d="M3 18.4v-2.796a4.3 4.3 0 0 0 .713.31A26.226 26.226 0 0 0 12 17.25c2.892 0 5.68-.468 8.287-1.335.252-.084.49-.189.713-.311V18.4c0 1.452-1.047 2.728-2.523 2.923-2.12.282-4.282.427-6.477.427a49.19 49.19 0 0 1-6.477-.427C4.047 21.128 3 19.852 3 18.4Z" />
+            </svg>
+          </a>
+        </li>
+        <li>
+          <a href="contact.html" class="active"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-6">
+              <path fill-rule="evenodd" d="M5.478 5.559A1.5 1.5 0 0 1 6.912 4.5H9A.75.75 0 0 0 9 3H6.912a3 3 0 0 0-2.868 2.118l-2.411 7.838a3 3 0 0 0-.133.882V18a3 3 0 0 0 3 3h15a3 3 0 0 0 3-3v-4.162c0-.299-.045-.596-.133-.882l-2.412-7.838A3 3 0 0 0 17.088 3H15a.75.75 0 0 0 0 1.5h2.088a1.5 1.5 0 0 1 1.434 1.059l2.213 7.191H17.89a3 3 0 0 0-2.684 1.658l-.256.513a1.5 1.5 0 0 1-1.342.829h-3.218a1.5 1.5 0 0 1-1.342-.83l-.256-.512a3 3 0 0 0-2.684-1.658H3.265l2.213-7.191Z" clip-rule="evenodd" />
+              <path fill-rule="evenodd" d="M12 2.25a.75.75 0 0 1 .75.75v6.44l1.72-1.72a.75.75 0 1 1 1.06 1.06l-3 3a.75.75 0 0 1-1.06 0l-3-3a.75.75 0 0 1 1.06-1.06l1.72 1.72V3a.75.75 0 0 1 .75-.75Z" clip-rule="evenodd" />
+            </svg>
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </header>
+    <main>
+      <section class="contact">
+        <span class="main-header">Contact</span>
+        <div class="contact-grid">
+          <div class="contact-box contact-info">
+            <div class="img-holder">
+              <img src="Images/profile2 Cropped.jpg" alt="" />
+            </div>
+            <div class="contact-header">
+              <h2>Let's Get In Touch</h2>
+              <p>
+                <b>Got a project in mind?</b> <br />
+                I'm all ears for new ideas — together, <br />
+                we can bring them to life.
+              </p>
+            </div>
+            <div class="email-section">
+              <svg
+                class="email-icon-only"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+              >
+                <path
+                  d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"
+                ></path>
+              </svg>
+              <span class="email-label"> Reach out manually to</span>
+              <a href="mailto:omaralfadali@gmail.com" class="email-link">
+                omaralfadali@gmail.com
+              </a>
+            </div>
+            <div class="social-links">
+              <a
+                href="https://github.com/omaralfadally"
+                class="social-link"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="GitHub"
+              >
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                  <path
+                    d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"
+                  ></path>
+                </svg>
+              </a>
+              <a
+                href="https://linkedin.com/in/omaralfadally"
+                class="social-link"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="LinkedIn"
+              >
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                  <path
+                    d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"
+                  /></svg
+              ></a>
+              <a
+                href="https://x.com/omaralfadally"
+                class="social-link"
+                target="_blank"
+                rel="noopener noreferre"
+                aria-label="X (Twitter)"
+              >
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                  <path
+                    d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"
+                  /></svg
+              ></a>
+            </div>
+          </div>
+          <div class="contact-box contact-form-wrapper">
+            <h3 class="form-header">or, drop a message</h3>
+            <form action="#" method="POST" class="contact-form">
+              <div class="form-group">
+                <label for="name">Full Name</label>
+                <div class="input-wrapper">
+                  <svg
+                    class="input-icon"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  >
+                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                    <circle cx="12" cy="7" r="4"></circle>
+                  </svg>
+                  <input
+                    type="text"
+                    name="name"
+                    id="name"
+                    placeholder="What should I call you?"
+                    required
+                  />
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="email">Email</label>
+                <div class="input-wrapper">
+                  <svg
+                    class="input-icon"
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                  >
+                    <path
+                      d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"
+                    />
+                  </svg>
+                  <input
+                    type="email"
+                    name="email"
+                    id="email"
+                    placeholder="Where can I reach you?"
+                    required
+                  />
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="subject">Subject</label>
+                <div class="input-wrapper">
+                  <svg
+                    class="input-icon"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  >
+                    <path d="M12 5v14M5 12h14"></path>
+                  </svg>
+                  <input
+                    type="text"
+                    name="subject"
+                    id="subject"
+                    placeholder="What's this about?"
+                    required
+                  />
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="subject">Message</label>
+                <div class="input-wrapper">
+                  <svg
+                    class="input-icon"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  >
+                    <path
+                      d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"
+                    ></path>
+                  </svg>
+                  <textarea
+                    name="message"
+                    id="message"
+                    placeholder="Tell me about your project..."
+                    required
+                  ></textarea>
+                </div>
+              </div>
+              <button type="submit">Submit Form</button>
+            </form>
+          </div>
+        </div>
+      </section>
+                <footer class="lets-talk">
+        <div>
+          <div class="writing">
+            <svg
+              fill="#000000"
+              version="1.1"
+              id="Capa_1"
+              xmlns="http://www.w3.org/2000/svg"
+              xmlns:xlink="http://www.w3.org/1999/xlink"
+              width="181px"
+              height="181px"
+              viewBox="-30.22 -30.22 362.61 362.61"
+              xml:space="preserve"
+              transform="matrix(-1, 0, 0, 1, 0, 0)rotate(0)"
+              stroke="#000000"
+              stroke-width="0.0030216699999999997"
+            >
+              <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+              <g
+                id="SVGRepo_tracerCarrier"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke="#666666"
+                stroke-width="1.8130019999999998"
+              ></g>
+              <g id="SVGRepo_iconCarrier">
+                <g>
+                  <path
+                    d="M261.155,24.004H41.007C18.39,24.004,0,42.402,0,65.017v129.092c0,22.613,18.39,41.012,41.007,41.012h166.17l34.588,40.869 c1.183,1.405,2.918,2.174,4.695,2.174c0.709,0,1.418-0.133,2.114-0.385c2.426-0.889,4.035-3.194,4.035-5.764V235.12h8.551 c22.614,0,41.007-18.398,41.007-41.012V65.017C302.162,42.402,283.775,24.004,261.155,24.004z M103.751,145.733 c-7.944,0-14.384-6.438-14.384-14.376c0-7.95,6.44-14.387,14.384-14.387c7.938,0,14.381,6.437,14.381,14.387 C118.132,139.296,111.689,145.733,103.751,145.733z M151.078,145.733c-7.944,0-14.381-6.438-14.381-14.376 c0-7.95,6.437-14.387,14.381-14.387c7.938,0,14.379,6.437,14.379,14.387C165.457,139.296,159.016,145.733,151.078,145.733z M201.365,145.733c-7.944,0-14.388-6.438-14.388-14.376c0-7.95,6.443-14.387,14.388-14.387c7.938,0,14.382,6.437,14.382,14.387 C215.747,139.296,209.303,145.733,201.365,145.733z"
+                  ></path>
+                </g>
+              </g>
+            </svg>
+          </div>
+          <span class="available"
+            ><div class="circle-icon">
+              <svg
+                viewBox="0 -3.5 32 32"
+                version="1.1"
+                xmlns="http://www.w3.org/2000/svg"
+                xmlns:xlink="http://www.w3.org/1999/xlink"
+                xmlns:sketch="http://www.bohemiancoding.com/sketch/ns"
+                fill="#ffffff"
+              >
+                <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                <g
+                  id="SVGRepo_tracerCarrier"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                ></g>
+                <g id="SVGRepo_iconCarrier">
+                  <title>mail</title>
+                  <desc>Created with Sketch Beta.</desc>
+                  <defs></defs>
+                  <g
+                    id="Page-1"
+                    stroke="none"
+                    stroke-width="1"
+                    fill="none"
+                    fill-rule="evenodd"
+                    sketch:type="MSPage"
+                  >
+                    <g
+                      id="Icon-Set-Filled"
+                      sketch:type="MSLayerGroup"
+                      transform="translate(-414.000000, -261.000000)"
+                      fill="#ffffff"
+                    >
+                      <path
+                        d="M430,275.916 L426.684,273.167 L415.115,285.01 L444.591,285.01 L433.235,273.147 L430,275.916 L430,275.916 Z M434.89,271.89 L445.892,283.329 C445.955,283.107 446,282.877 446,282.634 L446,262.862 L434.89,271.89 L434.89,271.89 Z M414,262.816 L414,282.634 C414,282.877 414.045,283.107 414.108,283.329 L425.147,271.927 L414,262.816 L414,262.816 Z M445,261 L415,261 L430,273.019 L445,261 L445,261 Z"
+                        id="mail"
+                        sketch:type="MSShapeGroup"
+                      ></path>
+                    </g>
+                  </g>
+                </g>
+              </svg>
+            </div>
+            <div class="circle-text" id="my-circle-text">
+              I AM AVAILABLE - FOR FREELANCE -
+            </div>
+          </span>
+          <span class="head">Let's talk about your project.</span>
+          <p>
+            Got a project in mind? Let's create something great. We can
+            transform that idea into real product.
+          </p>
+          <div class="getin-touch">
+            <a href="contact.html">Get in Touch</a>
+            <div class="arrow">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                transform="rotate(270)"
+              >
+                <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                <g
+                  id="SVGRepo_tracerCarrier"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke="#CCCCCC"
+                  stroke-width="0.144"
+                ></g>
+                <g id="SVGRepo_iconCarrier">
+                  <path
+                    d="M12 4.5L17 9.5M12 4.5L7 9.5M12 4.5L12 11M12 14.5C12 16.1667 11 19.5 7 19.5"
+                    stroke="#000000"
+                    stroke-width="0.36"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  ></path>
+                </g>
+              </svg>
+            </div>
+            <p class="together">
+              and make it <br />
+              real together
+            </p>
+          </div>
+        </div>
+      </footer>
+    </main>
+    <script src="https://cdn.jsdelivr.net/npm/circletype@2.3.0/dist/circletype.min.js"></script>
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Contact</title>
-</head>
+    <!-- ۲. الكود السحري بتاعنا -->
+    <script>
+      // بنختار العنصر اللي فيه النص بتاعنا
+      var element = document.getElementById("my-circle-text");
 
-<body>
-  <main>
-    <section class="contact">
-      
-    </section>
-  </main>
-</body>
+      // بننشئ دايرة جديدة حوالين النص
+      var circleType = new CircleType(element);
 
+      // ونسيب Half القطر فاضي، المكتبة هتظبطه تلقائي
+      circleType.radius();
+    </script>
+  </body>
 </html>
