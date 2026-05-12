@@ -53,6 +53,10 @@ body {
   color: var(--color-text-tertiary);
 }
 
+section {
+  overflow: hidden;
+}
+
 .container {
   padding-right: 1rem;
   padding-left: 1rem;
@@ -373,21 +377,22 @@ a {
   text-decoration: none;
 }
 
-nav {
-  position: fixed;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 1000;
-}
-
 @media (max-width: 767px) {
   nav {
+    position: fixed;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10000;
     bottom: 25px;
   }
 }
 
 @media (min-width: 768px) {
   nav {
+    position: fixed;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1000;
     top: 25px;
   }
 }
@@ -556,6 +561,10 @@ svg {
   }
 }
 
+.projects {
+  padding-top: 3rem;
+}
+
 .projects > .container {
   display: flex;
   flex-direction: column;
@@ -640,7 +649,8 @@ svg {
   }
 
   .projects .projects-holder .project .info h3,
-  .projects .projects-holder .project .info p {
+  .projects .projects-holder .project .info p,
+  .projects .projects-holder .project .info .date {
     transition: all 0.5s ease;
   }
 }
@@ -655,7 +665,7 @@ svg {
   max-width: 100%;
   border-radius: 15px;
   transform: scale(1.25);
-  transition: all 0.4s ease-in;
+  transition: all 0.5s ease-in;
 }
 
 .projects .projects-holder .project .info {
@@ -785,10 +795,13 @@ svg {
 }
 
 .about {
-  opacity: 0;
-  transform: translateY(-450px) scale(1.25);
-  animation: move-down 0.6s ease-in forwards;
-  padding-top: 15rem;
+  padding-top: 3rem;
+}
+
+@media (min-width: 768px) {
+  .about {
+    padding-top: 10rem;
+  }
 }
 
 .about > .container {
@@ -805,9 +818,12 @@ svg {
   padding-bottom: 2.5rem;
   margin-bottom: 5rem;
   position: relative;
+  transform: translateY(500px);
+  animation: move-down 1.5s  cubic-bezier(0.075, 0.82, 0.165, 1) forwards;
+  opacity: 0;
 }
 
-.about h2,
+.about .about-main-header,
 .about h3,
 .about strong {
   color: var(--color-text-primary, #ffffff);
@@ -934,6 +950,26 @@ svg {
   margin: 0 auto;
   padding: 15rem 1.5rem 10rem;
   color: var(--color-text-tertiary);
+}
+
+@media (max-width: 768px) {
+  .contact {
+    padding: 3rem 1.5rem 10rem;
+  }
+}
+
+section > h2 {
+  text-align: center;
+  font-size: 2.5rem;
+  letter-spacing: -1px;
+  transform: translateX(150px);
+  opacity: 0;
+  margin: -2rem 0 3rem;
+  animation: smooth-right 1.25s 0.6s cubic-bezier(0.075, 0.82, 0.165, 1) forwards;
+}
+
+section h2 > strong {
+  color: white;
 }
 
 .contact .contact-grid {
