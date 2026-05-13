@@ -53,7 +53,7 @@ body {
   color: var(--color-text-tertiary);
 }
 
-section {
+section:not(.projects) {
   overflow: hidden;
 }
 
@@ -172,7 +172,7 @@ section {
   }
 }
 
-section > .section-header {
+section .section-header {
   display: block;
   text-align: center;
   font-size: 2.5rem;
@@ -186,7 +186,7 @@ section > .section-header {
 }
 
 @media (min-width: 768px) {
-  section > .section-header {
+  section .section-header {
     font-size: 4rem;
     margin: -2rem 0 6rem;
     animation: smooth-right 1.25s 1.05s cubic-bezier(0.075, 0.82, 0.165, 1)
@@ -195,7 +195,7 @@ section > .section-header {
 }
 
 @media (min-width: 1199px) {
-  section > .section-header {
+  section .section-header {
     font-size: 6rem;
     margin: -2rem 0 8rem;
   }
@@ -601,6 +601,14 @@ svg {
   }
 }
 
+.projects-section {
+  padding-top: 3rem;
+}
+
+.projects .headers-holder {
+ overflow: hidden;
+}
+
 .projects > .container {
   display: flex;
   flex-direction: column;
@@ -621,6 +629,9 @@ svg {
 
 .projects .projects-holder {
   padding-bottom: 4.5rem;
+  animation: smooth-up 1.5s cubic-bezier(0.075, 0.82, 0.165, 1) forwards;
+  transform: translateY(500px);
+  opacity: 0;
 }
 
 @media (min-width: 809px) {
@@ -831,6 +842,17 @@ svg {
   .projects .projects-holder .see-more-text {
     font-size: 1.5rem;
   }
+}
+
+.projects .projects-holder .last-child-holder .last-text {
+  line-height: 1.35;
+  font-size: 1.5rem;
+  margin: 4rem auto 0;
+  text-align: center;
+}
+
+.projects .projects-holder .last-child-holder .last-text b {
+  color: white;
 }
 
 .about {
