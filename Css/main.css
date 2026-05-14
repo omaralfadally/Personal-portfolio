@@ -59,7 +59,7 @@ section:not(.projects) {
 
 @media (min-width: 768px) {
   section {
-    padding: 15rem 1.5rem 10rem;
+    padding: 15rem 1.5rem 0;
   }
 }
 
@@ -601,12 +601,14 @@ svg {
   }
 }
 
-.projects-section {
-  padding-top: 3rem;
+@media (max-width: 767px) {
+  .projects-section {
+    padding-top: 3rem;
+  }
 }
 
 .projects .headers-holder {
- overflow: hidden;
+  overflow: hidden;
 }
 
 .projects > .container {
@@ -656,7 +658,7 @@ svg {
 }
 
 .projects .projects-holder .last-child-holder .inner-wrapper {
-  padding-bottom: 5.45rem;
+  padding-bottom: 4rem;
   width: 100%;
   margin: 0 auto;
 }
@@ -814,7 +816,7 @@ svg {
 
 .projects .projects-holder .see-more-text {
   text-align: center;
-  margin: 3rem auto 1rem;
+  margin: 4rem auto 1rem;
   font-size: 1.15rem;
   text-transform: capitalize;
   line-height: 1.3;
