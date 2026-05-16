@@ -59,7 +59,7 @@ section:not(.projects) {
 
 @media (max-width: 767px) {
   section {
-    padding: 5.375rem 1.5rem 0;
+    padding: 5.375rem 0 0;
   }
 }
 
@@ -737,7 +737,7 @@ svg {
   .projects .projects-holder {
     position: relative;
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    grid-template-columns: 1fr;
     gap: 0.5rem;
   }
 }
@@ -773,6 +773,7 @@ svg {
   margin: 0 0 16rem;
   position: sticky;
   top: 50px;
+  box-shadow: var(--shadow-md);
 }
 
 .projects .projects-holder .last-child-project {
@@ -973,6 +974,19 @@ svg {
   opacity: 0;
 }
 
+@media(min-width: 768px) {
+  .about .bio {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+  .about .bio .pro-img,
+  .about .bio > div {
+    flex: 1;
+  }
+}
+
 .about .about-main-header,
 .about h3,
 .about strong {
@@ -1051,7 +1065,7 @@ svg {
   line-height: var(--main-line-height, 1.7);
 }
 
-.about .bio > a {
+.about .bio div > a {
   display: block;
   margin: 2rem auto 0;
   background-color: var(--color-effect);
@@ -1104,7 +1118,7 @@ svg {
 .contact .contact-grid {
   display: grid;
   gap: 1.5rem;
-  padding-bottom: 11rem;
+  padding: 0 1rem 11rem;
 }
 
 @media (min-width: 992px) {
