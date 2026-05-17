@@ -1,0 +1,359 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+    />
+    <title>Projects Hover Effect | Kanso Style</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        background: #0a0a0a;
+        font-family:
+          "Inter",
+          system-ui,
+          -apple-system,
+          "Segoe UI",
+          Roboto,
+          Helvetica,
+          sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        padding: 2rem;
+      }
+
+      /* --- حاوية البطاقات (شبكة متجاوبة) --- */
+      .projects-grid {
+        max-width: 1200px;
+        width: 100%;
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+        gap: 2rem;
+      }
+
+      /* --- البطاقة الواحدة (مشروع) --- */
+      .project-card {
+        display: block;
+        text-decoration: none;
+        background-color: #0a0a0a; /* أسود داكن (مثل الأصل) */
+        border-radius: 20px;
+        overflow: hidden;
+        transition: background-color 0.5s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+        box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.5);
+      }
+
+      /* حاوية الصورة مع overflow مخفي عشان التكبير ما يخرجش */
+      .image-wrapper {
+        position: relative;
+        overflow: hidden;
+        border-radius: 16px;
+        margin: 0.8rem;
+      }
+
+      .image-holder {
+        position: relative;
+        width: 100%;
+        padding-bottom: 75%; /* نسبة 4:3 زي ما بيظهر في المثال */
+        overflow: hidden;
+        border-radius: 12px;
+      }
+
+      .project-img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition:
+          transform 0.55s cubic-bezier(0.2, 0.9, 0.4, 1.2),
+          filter 0.4s ease;
+        transform: scale(1.05); /* تكبير خفيف أساسي */
+        filter: brightness(0.98);
+      }
+
+      /* زر View Project (مخفي في البداية) */
+      .view-btn {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) scale(0.8);
+        opacity: 0;
+        background: white;
+        color: #0a0a0a;
+        padding: 10px 24px;
+        border-radius: 40px;
+        font-weight: 600;
+        font-size: 0.9rem;
+        letter-spacing: -0.2px;
+        text-decoration: none;
+        transition:
+          transform 0.4s cubic-bezier(0.2, 0.9, 0.4, 1.2),
+          opacity 0.3s ease;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        z-index: 10;
+        white-space: nowrap;
+        pointer-events: none; /* منع التداخل مع hover (لأن الزر موجود داخل الرابط) */
+      }
+
+      /* --- معلومات المشروع (نص عادي + نص بديل يظهر عند hover) --- */
+      .project-info {
+        padding: 0.8rem 1.2rem 1.2rem;
+        position: relative;
+        transition: color 0.4s ease;
+        color: white;
+      }
+
+      /* الصف الأول: العنوان والعام */
+      .info-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        margin-bottom: 0.5rem;
+        position: relative;
+        min-height: 2rem;
+      }
+
+      /* حاوية النصوص التي ستتبادل */
+      .title-container,
+      .year-container,
+      .desc-container {
+        position: relative;
+        overflow: hidden;
+      }
+
+      .title-primary,
+      .year-primary,
+      .desc-primary {
+        transition:
+          transform 0.4s cubic-bezier(0.2, 0.9, 0.4, 1.2),
+          opacity 0.3s ease;
+        display: block;
+      }
+
+      .title-secondary,
+      .year-secondary,
+      .desc-secondary {
+        position: absolute;
+        top: 0;
+        left: 0;
+        transition:
+          transform 0.4s cubic-bezier(0.2, 0.9, 0.4, 1.2),
+          opacity 0.3s ease;
+        transform: translateY(100%);
+        opacity: 0;
+        white-space: nowrap;
+      }
+
+      /* الوصف (قد يطول) */
+      .desc-container {
+        margin-top: 0.35rem;
+      }
+      .desc-primary,
+      .desc-secondary {
+        font-size: 0.85rem;
+        opacity: 0.7;
+      }
+      .desc-secondary {
+        white-space: normal;
+      }
+
+      /* تنسيق النصوص الثابتة */
+      .project-title {
+        font-size: 1.3rem;
+        font-weight: 600;
+        letter-spacing: -0.3px;
+      }
+      .project-year {
+        font-size: 0.9rem;
+        font-weight: 500;
+        opacity: 0.65;
+      }
+
+      /* ========== HOVER EFFECTS (لمحاكاة كود Framer) ========== */
+      @media (min-width: 810px) {
+        .project-card:hover {
+          background-color: white;
+        }
+
+        /* 1. الصورة تتكسر وتضباب خفيف */
+        .project-card:hover .project-img {
+          transform: scale(1.2);
+          filter: blur(2px) brightness(1.02);
+        }
+
+        /* 2. إظهار الزر View Project */
+        .project-card:hover .view-btn {
+          transform: translate(-50%, -50%) scale(1);
+          opacity: 1;
+          pointer-events: auto; /* ممكن يبقى قابل للضغط */
+        }
+
+        /* 3. تغيير لون النصوص في منطقة info */
+        .project-card:hover .project-info {
+          color: #0a0a0a; /* أسود غامق */
+        }
+        .project-card:hover .project-year {
+          opacity: 0.8;
+          color: #0a0a0a;
+        }
+
+        /* 4. النصوص الأولية تتحرك لأعلى وتختفي */
+        .project-card:hover .title-primary {
+          transform: translateY(-100%);
+          opacity: 0;
+        }
+        .project-card:hover .year-primary {
+          transform: translateY(-100%);
+          opacity: 0;
+        }
+        .project-card:hover .desc-primary {
+          transform: translateY(-100%);
+          opacity: 0;
+        }
+
+        /* 5. النصوص البديلة تنزل من الأعلى وتظهر */
+        .project-card:hover .title-secondary {
+          transform: translateY(0);
+          opacity: 1;
+        }
+        .project-card:hover .year-secondary {
+          transform: translateY(0);
+          opacity: 1;
+        }
+        .project-card:hover .desc-secondary {
+          transform: translateY(0);
+          opacity: 0.8;
+        }
+      }
+
+      /* تحسين الموبايل: التبديل لا يحدث (زي الكود الأصلي) */
+      @media (max-width: 809px) {
+        .view-btn {
+          display: none;
+        }
+        .title-secondary,
+        .year-secondary,
+        .desc-secondary {
+          display: none; /* ببساطة ما تظهرش عشان الوضوح */
+        }
+        .project-card {
+          background-color: #111;
+        }
+      }
+
+      /* باقي تنسيقات بسيطة */
+      .project-card {
+        will-change: transform;
+      }
+      .project-card:hover .project-info {
+        transition: color 0.3s ease;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="projects-grid">
+      <!-- البطاقة 1 - Lune (مثال) -->
+      <a href="#" class="project-card">
+        <div class="image-wrapper">
+          <div class="image-holder">
+            <img
+              class="project-img"
+              src="Images/project1.webp"
+              alt="Project image"
+            />
+            <span class="view-btn">View Project →</span>
+          </div>
+        </div>
+        <div class="project-info">
+          <div class="info-row">
+            <div class="title-container">
+              <span class="title-primary project-title">Lune</span>
+              <span class="title-secondary project-title">Lune Studio</span>
+            </div>
+            <div class="year-container">
+              <span class="year-primary project-year">2025</span>
+              <span class="year-secondary project-year">2025</span>
+            </div>
+          </div>
+          <div class="desc-container">
+            <span class="desc-primary">App Visual Direction</span>
+            <span class="desc-secondary">Brand Experience →</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- البطاقة 2 - Aren -->
+      <a href="#" class="project-card">
+        <div class="image-wrapper">
+          <div class="image-holder">
+            <img
+              class="project-img"
+              src="https://placehold.co/800x600/2c2c2c/white?text=AREN"
+              alt="Project image"
+            />
+            <span class="view-btn">View Project →</span>
+          </div>
+        </div>
+        <div class="project-info">
+          <div class="info-row">
+            <div class="title-container">
+              <span class="title-primary project-title">Aren</span>
+              <span class="title-secondary project-title">Aren Agency</span>
+            </div>
+            <div class="year-container">
+              <span class="year-primary project-year">2025</span>
+              <span class="year-secondary project-year">2025</span>
+            </div>
+          </div>
+          <div class="desc-container">
+            <span class="desc-primary">Fashion Brand Launch</span>
+            <span class="desc-secondary">Identity & Strategy</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- البطاقة 3 - Oura (مثال آخر) -->
+      <a href="#" class="project-card">
+        <div class="image-wrapper">
+          <div class="image-holder">
+            <img
+              class="project-img"
+              src="https://placehold.co/800x600/2c2c2c/white?text=OURA"
+              alt="Project image"
+            />
+            <span class="view-btn">View Project →</span>
+          </div>
+        </div>
+        <div class="project-info">
+          <div class="info-row">
+            <div class="title-container">
+              <span class="title-primary project-title">Oura</span>
+              <span class="title-secondary project-title">Oura Wellness</span>
+            </div>
+            <div class="year-container">
+              <span class="year-primary project-year">2024</span>
+              <span class="year-secondary project-year">2024</span>
+            </div>
+          </div>
+          <div class="desc-container">
+            <span class="desc-primary">Brand Refinement</span>
+            <span class="desc-secondary">Visual Identity</span>
+          </div>
+        </div>
+      </a>
+    </div>
+
+    <!-- إضافة صغيرة لتأكيد أن الكود يحاكي سلوك "كود view-source" -->
+    <!-- ملاحظة: الألوان والانتقالات مطابقة للشرح المفصل الذي ذكرته -->
+  </body>
+</html>

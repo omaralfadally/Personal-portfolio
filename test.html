@@ -1,435 +1,484 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>About – Omar Al-Fadaly</title>
-  <!-- خطوط Google -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cause:wght@400;500;600;700&family=Caveat:wght@700&display=swap" rel="stylesheet">
-  <style>
-    /* ===== متغيرات الألوان (نفس نظامك) ===== */
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About – Omar Al-Fadaly</title>
+    <!-- خطوط Google -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cause:wght@400;500;600;700&family=Caveat:wght@700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      /* ===== متغيرات الألوان (نفس نظامك) ===== */
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
 
-    :root {
-      --color-bg-primary: #222222;
-      --color-bg-secondary: #0a0a0a;
-      --color-bg-tertiary: #0a0a0a;
-      --color-text-primary: #ffffff;
-      --color-text-secondary: rgba(255, 255, 255, 0.75);
-      --color-text-tertiary: rgba(255, 255, 255, 0.5);
-      --color-text-inverted: #000000;
-      --color-accent: #2b7fff;
-      --color-accent-hover: #1a5fd4;
-      --color-accent-subtle: rgba(43, 127, 255, 0.15);
-      --color-effect: #cae8bd;
-      --color-border: rgba(255, 255, 255, 0.08);
-      --color-border-light: #333333;
-      --main-line-height: 1.7;
-      --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.4);
-      --shadow-md: 0 6px 12px rgba(0, 0, 0, 0.5);
-      --shadow-lg: 0 12px 24px rgba(0, 0, 0, 0.6);
-    }
+      :root {
+        --color-bg-primary: #222222;
+        --color-bg-secondary: #0a0a0a;
+        --color-bg-tertiary: #0a0a0a;
+        --color-text-primary: #ffffff;
+        --color-text-secondary: rgba(255, 255, 255, 0.75);
+        --color-text-tertiary: rgba(255, 255, 255, 0.5);
+        --color-text-inverted: #000000;
+        --color-accent: #2b7fff;
+        --color-accent-hover: #1a5fd4;
+        --color-accent-subtle: rgba(43, 127, 255, 0.15);
+        --color-effect: #cae8bd;
+        --color-border: rgba(255, 255, 255, 0.08);
+        --color-border-light: #333333;
+        --main-line-height: 1.7;
+        --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.4);
+        --shadow-md: 0 6px 12px rgba(0, 0, 0, 0.5);
+        --shadow-lg: 0 12px 24px rgba(0, 0, 0, 0.6);
+      }
 
-    body {
-      background-color: var(--color-bg-primary);
-      color: var(--color-text-secondary);
-      font-family: "Cause", cursive;
-      line-height: var(--main-line-height);
-      overflow-x: hidden;
-    }
+      body {
+        background-color: var(--color-bg-primary);
+        color: var(--color-text-secondary);
+        font-family: "Cause", cursive;
+        line-height: var(--main-line-height);
+        overflow-x: hidden;
+      }
 
-    .container {
-      padding: 0 1.5rem;
-      margin: 0 auto;
-      max-width: 1100px;
-    }
+      .container {
+        padding: 0 1.5rem;
+        margin: 0 auto;
+        max-width: 1100px;
+      }
 
-    /* ===== عناوين الأقسام ===== */
-    .main-header {
-      display: block;
-      color: var(--color-text-primary);
-      background-color: #0a0a0a;
-      font-weight: 500;
-      font-size: 1.1rem;
-      width: fit-content;
-      padding: 8px 15px 8px 30px;
-      margin: 0 auto 2.5rem;
-      position: relative;
-      border-radius: 50px;
-      border: 1px solid rgba(255, 255, 255, 0.03);
-    }
+      /* ===== عناوين الأقسام ===== */
+      .main-header {
+        display: block;
+        color: var(--color-text-primary);
+        background-color: #0a0a0a;
+        font-weight: 500;
+        font-size: 1.1rem;
+        width: fit-content;
+        padding: 8px 15px 8px 30px;
+        margin: 0 auto 2.5rem;
+        position: relative;
+        border-radius: 50px;
+        border: 1px solid rgba(255, 255, 255, 0.03);
+      }
 
-    .main-header::before {
-      content: "";
-      position: absolute;
-      left: 15px;
-      top: 50%;
-      transform: translateY(-50%);
-      width: 6px;
-      height: 6px;
-      border-radius: 50%;
-      background-color: var(--color-text-primary);
-    }
+      .main-header::before {
+        content: "";
+        position: absolute;
+        left: 15px;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background-color: var(--color-text-primary);
+      }
 
-    .main-header::after {
-      content: "";
-      position: absolute;
-      left: 12px;
-      top: 50%;
-      transform: translateY(-50%);
-      width: 10px;
-      height: 10px;
-      border: 1px solid var(--color-text-primary);
-      border-radius: 50%;
-    }
+      .main-header::after {
+        content: "";
+        position: absolute;
+        left: 12px;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 10px;
+        height: 10px;
+        border: 1px solid var(--color-text-primary);
+        border-radius: 50%;
+      }
 
-    .section-header {
-      text-align: center;
-      font-size: 2.5rem;
-      line-height: 0.95;
-      letter-spacing: -1px;
-      margin: -1rem 0 3rem;
-      color: var(--color-text-tertiary);
-    }
+      .section-header {
+        text-align: center;
+        font-size: 2.5rem;
+        line-height: 0.95;
+        letter-spacing: -1px;
+        margin: -1rem 0 3rem;
+        color: var(--color-text-tertiary);
+      }
 
-    .section-header b {
-      color: white;
-      font-weight: 600;
-    }
+      .section-header b {
+        color: white;
+        font-weight: 600;
+      }
 
-    /* ===== هيكل الصفحة ===== */
-    .about {
-      padding: 3rem 0 5rem;
-    }
-
-    @media (min-width: 768px) {
+      /* ===== هيكل الصفحة ===== */
       .about {
-        padding: 6rem 0 8rem;
+        padding: 3rem 0 5rem;
       }
-    }
 
-    /* ===== الصورة الشخصية والـ Bio ===== */
-    .bio {
-      text-align: center;
-      margin-bottom: 4rem;
-    }
+      @media (min-width: 768px) {
+        .about {
+          padding: 6rem 0 8rem;
+        }
+      }
 
-    .pro-img {
-      width: fit-content;
-      height: fit-content;
-      margin: 0 auto 2rem;
-      padding: 1.25rem;
-      background-color: #444444;
-      box-shadow: 0 0 25px rgba(0, 0, 0, 0.8);
-      border-radius: 50%;
-      transition: all 0.4s ease-in-out;
-    }
+      /* ===== الصورة الشخصية والـ Bio ===== */
+      .bio {
+        text-align: center;
+        margin-bottom: 4rem;
+      }
 
-    .pro-img > div {
-      width: 180px;
-      height: 180px;
-      overflow: hidden;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
+      .pro-img {
+        width: fit-content;
+        height: fit-content;
+        margin: 0 auto 2rem;
+        padding: 1.25rem;
+        background-color: #444444;
+        box-shadow: 0 0 25px rgba(0, 0, 0, 0.8);
+        border-radius: 50%;
+        transition: all 0.4s ease-in-out;
+      }
 
-    .pro-img img {
-      width: 100%;
-      height: 100%;
-      border-radius: 50%;
-      object-fit: cover;
-      object-position: 0 17.5%;
-      filter: grayscale(100%);
-      transition: all 0.5s ease-in-out;
-    }
+      .pro-img > div {
+        width: 180px;
+        height: 180px;
+        overflow: hidden;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
 
-    .pro-img:hover img {
-      filter: grayscale(0%);
-      transform: scale(1.05);
-    }
+      .pro-img img {
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        object-fit: cover;
+        object-position: 0 17.5%;
+        filter: grayscale(100%);
+        transition: all 0.5s ease-in-out;
+      }
 
-    .bio h2 {
-      font-size: 3rem;
-      color: var(--color-text-primary);
-      margin: 0 0 0.5rem;
-    }
+      .pro-img:hover img {
+        filter: grayscale(0%);
+        transform: scale(1.05);
+      }
 
-    .bio .roles {
-      font-size: 0.9rem;
-      color: var(--color-text-tertiary);
-      margin-bottom: 1.5rem;
-    }
+      .bio h2 {
+        font-size: 3rem;
+        color: var(--color-text-primary);
+        margin: 0 0 0.5rem;
+      }
 
-    .bio p {
-      margin: 1.5rem 0;
-      line-height: var(--main-line-height);
-      font-size: 1.1rem;
-      max-width: 700px;
-      margin-left: auto;
-      margin-right: auto;
-    }
+      .bio .roles {
+        font-size: 0.9rem;
+        color: var(--color-text-tertiary);
+        margin-bottom: 1.5rem;
+      }
 
-    .bio p strong {
-      color: var(--color-text-primary);
-    }
+      .bio p {
+        margin: 1.5rem 0;
+        line-height: var(--main-line-height);
+        font-size: 1.1rem;
+        max-width: 700px;
+        margin-left: auto;
+        margin-right: auto;
+      }
 
-    /* ===== What I Do ===== */
-    .what-ido {
-      margin-bottom: 3rem;
-    }
+      .bio p strong {
+        color: var(--color-text-primary);
+      }
 
-    .what-ido h3 {
-      font-size: 2rem;
-      color: var(--color-text-primary);
-      margin-bottom: 2rem;
-      text-align: center;
-    }
+      /* ===== What I Do ===== */
+      .what-ido {
+        margin-bottom: 3rem;
+      }
 
-    .services-grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 1.5rem;
-    }
+      .what-ido h3 {
+        font-size: 2rem;
+        color: var(--color-text-primary);
+        margin-bottom: 2rem;
+        text-align: center;
+      }
 
-    @media (min-width: 768px) {
       .services-grid {
-        grid-template-columns: repeat(2, 1fr);
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
       }
-    }
 
-    .service-card {
-      background-color: var(--color-bg-secondary);
-      border: 1px solid var(--color-border);
-      border-radius: 16px;
-      padding: 1.75rem;
-      transition: all 0.3s ease;
-    }
+      @media (min-width: 768px) {
+        .services-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
 
-    .service-card:hover {
-      border-color: var(--color-effect);
-      transform: translateY(-4px);
-      box-shadow: var(--shadow-md);
-    }
+      .service-card {
+        background-color: var(--color-bg-secondary);
+        border: 1px solid var(--color-border);
+        border-radius: 16px;
+        padding: 1.75rem;
+        transition: all 0.3s ease;
+      }
 
-    .service-icon {
-      width: 44px;
-      height: 44px;
-      color: var(--color-effect);
-      margin-bottom: 1.25rem;
-    }
+      .service-card:hover {
+        border-color: var(--color-effect);
+        transform: translateY(-4px);
+        box-shadow: var(--shadow-md);
+      }
 
-    .service-card h4 {
-      font-size: 1.25rem;
-      color: var(--color-text-primary);
-      margin-bottom: 0.75rem;
-    }
+      .service-icon {
+        width: 44px;
+        height: 44px;
+        color: var(--color-effect);
+        margin-bottom: 1.25rem;
+      }
 
-    .service-card p {
-      color: var(--color-text-secondary);
-      font-size: 0.95rem;
-      line-height: var(--main-line-height);
-    }
+      .service-card h4 {
+        font-size: 1.25rem;
+        color: var(--color-text-primary);
+        margin-bottom: 0.75rem;
+      }
 
-    /* ===== Proficiencies ===== */
-    .proficiencies h3 {
-      font-size: 2rem;
-      color: var(--color-text-primary);
-      margin-bottom: 2rem;
-      text-align: center;
-    }
+      .service-card p {
+        color: var(--color-text-secondary);
+        font-size: 0.95rem;
+        line-height: var(--main-line-height);
+      }
 
-    .proficiencies > div {
-      display: flex;
-      padding: 1.5rem 0;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    }
+      /* ===== Proficiencies ===== */
+      .proficiencies h3 {
+        font-size: 2rem;
+        color: var(--color-text-primary);
+        margin-bottom: 2rem;
+        text-align: center;
+      }
 
-    .proficiencies h4 {
-      width: 45%;
-      margin: 0;
-      color: white;
-      font-size: 1.15rem;
-    }
+      .proficiencies > div {
+        display: flex;
+        padding: 1.5rem 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      }
 
-    .proficiencies ul {
-      flex: 1;
-      list-style: none;
-    }
+      .proficiencies h4 {
+        width: 45%;
+        margin: 0;
+        color: white;
+        font-size: 1.15rem;
+      }
 
-    .proficiencies ul li:not(:last-child) {
-      padding-bottom: 0.75rem;
-    }
+      .proficiencies ul {
+        flex: 1;
+        list-style: none;
+      }
 
-    /* ===== Footer (Lets talk) ===== */
-    .lets-talk {
-      background-color: white;
-      color: var(--color-bg-secondary);
-      padding: 4rem 2rem;
-      text-align: center;
-      position: relative;
-    }
+      .proficiencies ul li:not(:last-child) {
+        padding-bottom: 0.75rem;
+      }
 
-    .lets-talk > div {
-      max-width: 600px;
-      margin: 0 auto;
-    }
+      /* ===== Footer (Lets talk) ===== */
+      .lets-talk {
+        background-color: white;
+        color: var(--color-bg-secondary);
+        padding: 4rem 2rem;
+        text-align: center;
+        position: relative;
+      }
 
-    .lets-talk .head {
-      display: block;
-      font-size: 3rem;
-      font-weight: 600;
-      letter-spacing: -1px;
-      margin: 0 0 2rem;
-    }
+      .lets-talk > div {
+        max-width: 600px;
+        margin: 0 auto;
+      }
 
-    .lets-talk div > p {
-      line-height: var(--main-line-height);
-      font-size: 1.3rem;
-      margin: 0 0 3rem;
-    }
+      .lets-talk .head {
+        display: block;
+        font-size: 3rem;
+        font-weight: 600;
+        letter-spacing: -1px;
+        margin: 0 0 2rem;
+      }
 
-    .lets-talk .getin-touch a {
-      padding: 1rem 2rem;
-      background: var(--color-bg-secondary);
-      color: white;
-      border-radius: 15px;
-      font-weight: 600;
-      text-decoration: none;
-      box-shadow: inset 0 -4px 0 0 rgba(255, 255, 255, 0.3);
-    }
-  </style>
-</head>
-<body>
-  <main>
-    <section class="about">
-      <div class="container">
-        <!-- العنوان الرئيسي -->
-        <span class="main-header">About Me</span>
-        <h2 class="section-header"><b>A closer look</b> at who I am</h2>
+      .lets-talk div > p {
+        line-height: var(--main-line-height);
+        font-size: 1.3rem;
+        margin: 0 0 3rem;
+      }
 
-        <!-- الصورة الشخصية والـ Bio -->
-        <div class="bio">
-          <div class="pro-img">
-            <div>
-              <img src="Images/profile.jpg" alt="Omar Al-Fadaly portrait">
+      .lets-talk .getin-touch a {
+        padding: 1rem 2rem;
+        background: var(--color-bg-secondary);
+        color: white;
+        border-radius: 15px;
+        font-weight: 600;
+        text-decoration: none;
+        box-shadow: inset 0 -4px 0 0 rgba(255, 255, 255, 0.3);
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <section class="about">
+        <div class="container">
+          <!-- العنوان الرئيسي -->
+          <span class="main-header">About Me</span>
+          <h2 class="section-header"><b>A closer look</b> at who I am</h2>
+
+          <!-- الصورة الشخصية والـ Bio -->
+          <div class="bio">
+            <div class="pro-img">
+              <div>
+                <img src="Images/profile.jpg" alt="Omar Al-Fadaly portrait" />
+              </div>
+            </div>
+            <h2>Omar Al-Fadaly</h2>
+            <div class="roles">Front‑end Developer · Web Designer</div>
+            <p>
+              I'm a <strong>self-taught</strong> front-end developer based in
+              <strong>Egypt</strong> with a deep passion for crafting
+              <strong>clean, bold, and user-friendly</strong> interfaces. I
+              believe good code is invisible, and great design tells a story.
+              <strong>Since 2025</strong>, I've been turning complex problems
+              into
+              <strong>simple, elegant solutions.</strong>
+            </p>
+          </div>
+
+          <!-- What I Do (4 بطاقات بشرح موسع) -->
+          <div class="what-ido">
+            <h3>What I Do</h3>
+            <div class="services-grid">
+              <!-- 1. Responsive Design -->
+              <div class="service-card">
+                <svg
+                  class="service-icon"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <rect x="2" y="3" width="20" height="14" rx="2" />
+                  <line x1="8" y1="21" x2="16" y2="21" />
+                  <line x1="12" y1="17" x2="12" y2="21" />
+                </svg>
+                <h4>Responsive Design</h4>
+                <p>
+                  Your website will look stunning on every device — mobile,
+                  tablet, and desktop. I use fluid grids and flexible images to
+                  ensure a flawless experience for all users, no matter how they
+                  browse.
+                </p>
+              </div>
+
+              <!-- 2. Design to Code -->
+              <div class="service-card">
+                <svg
+                  class="service-icon"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <polygon
+                    points="12 2 22 8.5 22 15.5 12 22 2 15.5 2 8.5 12 2"
+                  />
+                  <line x1="12" y1="22" x2="12" y2="15.5" />
+                  <polyline points="22 8.5 12 15.5 2 8.5" />
+                </svg>
+                <h4>Design to Code</h4>
+                <p>
+                  I convert your Figma or Sketch designs into pixel‑perfect,
+                  semantic HTML & CSS. Every spacing, color, and interaction is
+                  faithfully recreated, so your final product matches your
+                  vision exactly.
+                </p>
+              </div>
+
+              <!-- 3. Performance -->
+              <div class="service-card">
+                <svg
+                  class="service-icon"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <polyline points="22 12 18 12 15 21 9 3 6 12 2 12" />
+                </svg>
+                <h4>Performance</h4>
+                <p>
+                  Speed matters. I optimize images, minify code, leverage
+                  caching, and reduce render‑blocking resources. Your site loads
+                  fast, keeping visitors engaged and improving SEO rankings.
+                </p>
+              </div>
+
+              <!-- 4. Accessibility -->
+              <div class="service-card">
+                <svg
+                  class="service-icon"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <circle cx="12" cy="12" r="10" />
+                  <path d="M8 14s1.5 2 4 2 4-2 4-2" />
+                  <line x1="9" y1="9" x2="9.01" y2="9" />
+                  <line x1="15" y1="9" x2="15.01" y2="9" />
+                </svg>
+                <h4>Accessibility</h4>
+                <p>
+                  The web should be for everyone. I build with WCAG guidelines
+                  in mind, using semantic markup, proper ARIA labels, and
+                  keyboard navigation support, so your site is usable by all.
+                </p>
+              </div>
             </div>
           </div>
-          <h2>Omar Al-Fadaly</h2>
-          <div class="roles">Front‑end Developer · Web Designer</div>
+
+          <!-- Proficiencies -->
+          <div class="proficiencies">
+            <h3>Proficiencies</h3>
+            <div class="skills">
+              <h4>Skills</h4>
+              <ul>
+                <li>Responsive Web Design</li>
+                <li>UI/UX Principles</li>
+                <li>Performance Optimization</li>
+                <li>Accessibility (a11y)</li>
+              </ul>
+            </div>
+            <div class="tools">
+              <h4>Tools</h4>
+              <ul>
+                <li>VS Code</li>
+                <li>Figma</li>
+                <li>Git & GitHub</li>
+                <li>Chrome DevTools</li>
+                <li>Tailwind CSS</li>
+              </ul>
+            </div>
+            <div class="tech-stack">
+              <h4>Tech Stack</h4>
+              <ul>
+                <li>HTML5</li>
+                <li>CSS3</li>
+                <li>JavaScript (ES6+)</li>
+                <li>Tailwind CSS</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Footer Lets talk -->
+      <footer class="lets-talk">
+        <div>
+          <span class="head">Let's talk about your project.</span>
           <p>
-            I'm a <strong>self-taught</strong> front-end developer based in
-            <strong>Egypt</strong> with a deep passion for crafting
-            <strong>clean, bold, and user-friendly</strong> interfaces. I
-            believe good code is invisible, and great design tells a story.
-            <strong>Since 2025</strong>, I've been turning complex problems into
-            <strong>simple, elegant solutions.</strong>
+            Got a project in mind? Let's create something great. We can
+            transform that idea into real product.
           </p>
-        </div>
-
-        <!-- What I Do (4 بطاقات بشرح موسع) -->
-        <div class="what-ido">
-          <h3>What I Do</h3>
-          <div class="services-grid">
-
-            <!-- 1. Responsive Design -->
-            <div class="service-card">
-              <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <rect x="2" y="3" width="20" height="14" rx="2"/>
-                <line x1="8" y1="21" x2="16" y2="21"/>
-                <line x1="12" y1="17" x2="12" y2="21"/>
-              </svg>
-              <h4>Responsive Design</h4>
-              <p>Your website will look stunning on every device — mobile, tablet, and desktop. I use fluid grids and flexible images to ensure a flawless experience for all users, no matter how they browse.</p>
-            </div>
-
-            <!-- 2. Design to Code -->
-            <div class="service-card">
-              <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <polygon points="12 2 22 8.5 22 15.5 12 22 2 15.5 2 8.5 12 2"/>
-                <line x1="12" y1="22" x2="12" y2="15.5"/>
-                <polyline points="22 8.5 12 15.5 2 8.5"/>
-              </svg>
-              <h4>Design to Code</h4>
-              <p>I convert your Figma or Sketch designs into pixel‑perfect, semantic HTML & CSS. Every spacing, color, and interaction is faithfully recreated, so your final product matches your vision exactly.</p>
-            </div>
-
-            <!-- 3. Performance -->
-            <div class="service-card">
-              <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
-              </svg>
-              <h4>Performance</h4>
-              <p>Speed matters. I optimize images, minify code, leverage caching, and reduce render‑blocking resources. Your site loads fast, keeping visitors engaged and improving SEO rankings.</p>
-            </div>
-
-            <!-- 4. Accessibility -->
-            <div class="service-card">
-              <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <circle cx="12" cy="12" r="10"/>
-                <path d="M8 14s1.5 2 4 2 4-2 4-2"/>
-                <line x1="9" y1="9" x2="9.01" y2="9"/>
-                <line x1="15" y1="9" x2="15.01" y2="9"/>
-              </svg>
-              <h4>Accessibility</h4>
-              <p>The web should be for everyone. I build with WCAG guidelines in mind, using semantic markup, proper ARIA labels, and keyboard navigation support, so your site is usable by all.</p>
-            </div>
-
+          <div class="getin-touch">
+            <a href="contact.html">Get in Touch</a>
           </div>
         </div>
-
-        <!-- Proficiencies -->
-        <div class="proficiencies">
-          <h3>Proficiencies</h3>
-          <div class="skills">
-            <h4>Skills</h4>
-            <ul>
-              <li>Responsive Web Design</li>
-              <li>UI/UX Principles</li>
-              <li>Performance Optimization</li>
-              <li>Accessibility (a11y)</li>
-            </ul>
-          </div>
-          <div class="tools">
-            <h4>Tools</h4>
-            <ul>
-              <li>VS Code</li>
-              <li>Figma</li>
-              <li>Git & GitHub</li>
-              <li>Chrome DevTools</li>
-              <li>Tailwind CSS</li>
-            </ul>
-          </div>
-          <div class="tech-stack">
-            <h4>Tech Stack</h4>
-            <ul>
-              <li>HTML5</li>
-              <li>CSS3</li>
-              <li>JavaScript (ES6+)</li>
-              <li>Tailwind CSS</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Footer Lets talk -->
-    <footer class="lets-talk">
-      <div>
-        <span class="head">Let's talk about your project.</span>
-        <p>Got a project in mind? Let's create something great. We can transform that idea into real product.</p>
-        <div class="getin-touch">
-          <a href="contact.html">Get in Touch</a>
-        </div>
-      </div>
-    </footer>
-  </main>
-</body>
+      </footer>
+    </main>
+  </body>
 </html>
