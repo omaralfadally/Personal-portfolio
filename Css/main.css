@@ -733,14 +733,8 @@ svg {
   .projects .projects-holder {
     position: relative;
     display: grid;
-    grid-template-columns: 1fr;
-    gap: 0.5rem;
-  }
-}
-
-@media (min-width: 1110px) {
-  .projects .projects-holder {
     grid-template-columns: repeat(2, 1fr);
+    gap: 0.5rem;
   }
 }
 
@@ -763,6 +757,11 @@ svg {
   .projects .projects-holder .project {
     position: static;
     margin-bottom: 0;
+  }
+}
+
+@media (min-width: 1200px) {
+  .projects .projects-holder .project {
     transition: all 0.75s cubic-bezier(0.2, 0.9, 0.4, 1.2);
   }
 
@@ -798,7 +797,7 @@ svg {
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
 }
 
-@media (min-width: 768px) {
+@media (min-width: 1200px) {
   .projects .projects-holder .project:hover .img > a {
     transform: translate(-50%, -50%) scale(1);
     opacity: 1;
@@ -812,7 +811,7 @@ svg {
   transition: all 0.75s cubic-bezier(0.2, 0.9, 0.4, 1.2);
 }
 
-@media (min-width: 810px) {
+@media (min-width: 1200px) {
   .projects .projects-holder .project:hover img {
     transform: scale(1.05);
     filter: blur(2.5px);
@@ -838,14 +837,6 @@ svg {
 .projects .projects-holder .project .project-info .info-row .desc-container {
   height: 18.5px;
   overflow: hidden;
-}
-
-
-@media (max-width: 809px) {
-  .projects .projects-holder .project .project-info .info-row .btn-container .btn {
-    background-color: rgba(255, 255, 255, 0.1);
-    border-radius: 40px;
-  }
 }
 
 .projects
@@ -905,7 +896,7 @@ svg {
   color: var(--color-bg-secondary);
 }
 
-@media (min-width: 810px) {
+@media (min-width: 1200px) {
   .projects
     .projects-holder
     .project:hover
@@ -954,31 +945,19 @@ svg {
   }
 }
 
-@media (max-width: 809px) {
+@media (max-width: 1199px) {
   .projects .projects-holder .project .project-info .info-row .review-btn {
-  padding: 6px;
-  border-radius: 6px;
-  margin: 0;
-  background-color: #222222;
-  color: white;
-}
-}
-
-@media (min-width: 810px) {
-.projects .projects-holder .project .project-info .info-row .review-btn {
-    display: none;
+    padding: 6px;
+    border-radius: 6px;
+    margin: 0;
+    background-color: #222222;
+    color: white;
   }
 }
 
 @media (min-width: 1200px) {
-  .projects .projects-holder .project .review .git-code {
-    background-color: var(--color-bg-tertiary);
-    color: white;
-  }
-
-  .projects .projects-holder .project .review .live-demo {
-    background-color: var(--color-effect);
-    color: black;
+  .projects .projects-holder .project .project-info .info-row .review-btn {
+    display: none;
   }
 }
 
@@ -1070,24 +1049,23 @@ svg {
   .about .bio {
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    gap: 1rem;
+    justify-content: center;
+    gap: 3rem;
   }
-  
-  .about .bio .pro-img {
-    flex-basis: 25%;
-  }
-  
+
   .about .bio > div {
     flex: 1;
   }
-  
-  .about .bio .pro-img .inner.holder {
-    width: 200px;
-    height: 200px;
-    margin: 0 auto;
+
+  .about .bio > div:first-child {
+    max-width: 410px;
+    max-height: 410px;
   }
 
+  .about .bio > div:last-child {
+    max-width: 600px;
+    text-align: left;
+  }
 }
 
 .about .about-main-header,
@@ -1101,15 +1079,9 @@ svg {
   margin: 0 0 0.875rem;
 }
 
-.about .bio .pro-img {
- width: 25%;
- height: 25%;
- margin: 0 auto;
-}
-
-.about .bio .pro-img .inner.holder {
-    width: 200px;
-  height: 200px;
+.about .bio .pro-img .inner-holder {
+  width: 240px;
+  height: 240px;
   margin: 0 auto 2rem;
   padding: 1.25rem;
   background-color: #444444;
@@ -1118,15 +1090,23 @@ svg {
   border-radius: 50%;
 }
 
-.about .bio .pro-img .inner.holder > div {
-  width: 180px;
-  height: 180px;
+@media (min-width: 568px) {
+  .about .bio .pro-img .inner-holder {
+    width: 320px;
+    height: 320px;
+  }
+}
+
+@media (min-width: 768px) {
+  .about .bio .pro-img .inner-holder {
+    width: 390px;
+    height: 390px;
+  }
+}
+
+.about .bio .pro-img .inner-holder > div {
   overflow: hidden;
   border-radius: 50%;
-  text-align: center;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
 .about .bio .pro-img img {
@@ -1135,7 +1115,6 @@ svg {
   border-radius: 50%;
   object-fit: cover;
   object-position: 0 17.5%;
-  filter: grayscale(100%);
   transition: all 0.5s ease-in-out;
 }
 
@@ -1153,6 +1132,13 @@ svg {
   left: 50%;
   top: -12px;
   transform: translate(-50%, -50%);
+}
+
+@media (min-width: 810px) {
+  .about .bio .header > span {
+    left: 0;
+    transform: translateY(-50%);
+  }
 }
 
 .about .bio .header > span:first-of-type {
@@ -1184,6 +1170,17 @@ svg {
   width: fit-content;
   font-weight: 700;
   font-size: 1.05rem;
+  transition: all 0.2s ease-in-out;
+}
+
+@media (min-width: 810px) {
+  .about .bio div > a {
+    margin: 2rem 0;
+  }
+
+  .about .bio div > a:hover {
+    background-color: white;
+  }
 }
 
 .about .what-ido p {
@@ -1620,6 +1617,6 @@ svg {
 
 @keyframes arrow-right {
   to {
-    transform:  translateX(5px);
+    transform: translateX(5px);
   }
 }
