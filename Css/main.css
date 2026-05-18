@@ -792,7 +792,7 @@ svg {
   opacity: 0;
   z-index: 1000;
   transition:
-    transform 0.5s 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275),
+    transform 0.5s 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275),
     opacity 0.5s 0.3s ease;
   z-index: 10;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
@@ -840,57 +840,12 @@ svg {
   overflow: hidden;
 }
 
-.projects .projects-holder .project .project-info .info-row .btn-container {
-  overflow: hidden;
-  height: 20px;
-}
 
-.projects
-  .projects-holder
-  .project
-  .project-info
-  .info-row
-  .btn-container
-  .btn
-  > div {
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 5px;
-}
-
-.projects
-  .projects-holder
-  .project
-  .project-info
-  .info-row
-  .btn-container
-  .btn
-  > div
-  > svg {
-  color: white;
-  animation: arrow-right 0.3s infinite;
-}
-
-.projects
-  .projects-holder
-  .project
-  .project-info
-  .info-row
-  .btn-container
-  .btn {
-  height: fit-content;
-}
-
-.projects
-  .projects-holder
-  .project
-  .project-info
-  .info-row
-  .btn-container
-  .primary-btn {
-  color: white;
+@media (max-width: 809px) {
+  .projects .projects-holder .project .project-info .info-row .btn-container .btn {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 40px;
+  }
 }
 
 .projects
@@ -913,14 +868,7 @@ svg {
   .project-info
   .info-row
   .desc-container
-  .desc-primary,
-.projects
-  .projects-holder
-  .project
-  .project-info
-  .info-row
-  .btn-container
-  .primary-btn {
+  .desc-primary {
   display: block;
   margin: 0;
   font-size: 1rem;
@@ -948,14 +896,7 @@ svg {
   .project-info
   .info-row
   .desc-container
-  .desc-secondary,
-.projects
-  .projects-holder
-  .project
-  .project-info
-  .info-row
-  .btn-container
-  .secondary-btn {
+  .desc-secondary {
   display: block;
   margin: 0;
   font-size: 1rem;
@@ -985,14 +926,7 @@ svg {
     .project-info
     .info-row
     .desc-container
-    .desc-primary,
-  .projects
-    .projects-holder
-    .project:hover
-    .project-info
-    .info-row
-    .btn-container
-    .primary-btn {
+    .desc-primary {
     transform: translateY(-14px);
   }
   .projects
@@ -1015,28 +949,23 @@ svg {
     .project-info
     .info-row
     .desc-container
-    .desc-secondary,
-  .projects
-    .projects-holder
-    .project:hover
-    .project-info
-    .info-row
-    .btn-container
-    .secondary-btn {
+    .desc-secondary {
     transform: translateY(-18px);
   }
 }
-/* 
-.projects .projects-holder .project .review {
+
+@media (max-width: 809px) {
+  .projects .projects-holder .project .project-info .info-row .review-btn {
   padding: 6px;
   border-radius: 6px;
   margin: 0;
   background-color: #222222;
   color: white;
-} */
+}
+}
 
-@media (min-width: 768px) {
-  .projects .projects-holder .project .review {
+@media (min-width: 810px) {
+.projects .projects-holder .project .project-info .info-row .review-btn {
     display: none;
   }
 }
@@ -1137,17 +1066,28 @@ svg {
   opacity: 0;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 810px) {
   .about .bio {
     display: flex;
     align-items: center;
     justify-content: space-between;
     gap: 1rem;
   }
-  .about .bio .pro-img,
+  
+  .about .bio .pro-img {
+    flex-basis: 25%;
+  }
+  
   .about .bio > div {
     flex: 1;
   }
+  
+  .about .bio .pro-img .inner.holder {
+    width: 200px;
+    height: 200px;
+    margin: 0 auto;
+  }
+
 }
 
 .about .about-main-header,
@@ -1162,8 +1102,14 @@ svg {
 }
 
 .about .bio .pro-img {
-  width: fit-content;
-  height: fit-content;
+ width: 25%;
+ height: 25%;
+ margin: 0 auto;
+}
+
+.about .bio .pro-img .inner.holder {
+    width: 200px;
+  height: 200px;
   margin: 0 auto 2rem;
   padding: 1.25rem;
   background-color: #444444;
@@ -1172,7 +1118,7 @@ svg {
   border-radius: 50%;
 }
 
-.about .bio .pro-img > div {
+.about .bio .pro-img .inner.holder > div {
   width: 180px;
   height: 180px;
   overflow: hidden;
@@ -1674,6 +1620,6 @@ svg {
 
 @keyframes arrow-right {
   to {
-    transform: rotate(90deg) translateY(10px);
+    transform:  translateX(5px);
   }
 }
