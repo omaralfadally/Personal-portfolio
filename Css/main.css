@@ -704,6 +704,10 @@ svg {
   }
 }
 
+.projects .headers-holder {
+  overflow-x: hidden;
+}
+
 .projects > .container {
   display: flex;
   flex-direction: column;
@@ -1076,7 +1080,25 @@ svg {
 
 .about h3 {
   font-size: 2.5rem;
-  margin: 0 0 0.875rem;
+  position: relative;
+  width: fit-content;
+}
+
+.about h3:before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: -5px;
+  width: 50%;
+  height: 2px;
+  background: linear-gradient(to right, var(--color-effect) 50%, var(--color-text-tertiary) 50%);
+}
+
+@media (max-width: 809px) {
+  .about h3 {
+    margin: 0 auto 0.875rem;
+  }
 }
 
 .about .bio .pro-img .inner-holder {
@@ -1185,6 +1207,7 @@ svg {
 
 .about .what-ido p {
   line-height: var(--main-line-height, 1.7);
+  text-align: center;
 }
 
 .proficiencies > div {
