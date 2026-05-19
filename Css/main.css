@@ -1034,6 +1034,12 @@ svg {
   padding-bottom: 8rem;
 }
 
+@media (min-width: 810px) {
+  .about > .container {
+    max-width: 1000px;
+  }
+}
+
 .about .container > div:not(:last-child) {
   margin-bottom: 3.5rem;
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
@@ -1050,8 +1056,11 @@ svg {
 }
 
 @media (min-width: 810px) {
-  .about .bio {
+  .about .container > div {
     display: flex;
+  }
+
+  .about .bio {
     align-items: center;
     justify-content: center;
     gap: 3rem;
@@ -1082,22 +1091,13 @@ svg {
   font-size: 2.5rem;
   position: relative;
   width: fit-content;
+  height: fit-content;
+  margin: 2.5rem auto;
 }
 
-.about h3:before {
-  content: "";
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  bottom: -5px;
-  width: 50%;
-  height: 2px;
-  background: linear-gradient(to right, var(--color-effect) 50%, var(--color-text-tertiary) 50%);
-}
-
-@media (max-width: 809px) {
+@media (min-width: 810px) {
   .about h3 {
-    margin: 0 auto 0.875rem;
+    margin: 0;
   }
 }
 
@@ -1205,9 +1205,75 @@ svg {
   }
 }
 
-.about .what-ido p {
+@media (min-width: 810px) {
+  .about .what-ido {
+    display: flex;
+  }
+  .about .what-ido h3,
+  .about .what-ido > div {
+    flex: 1;
+  }
+}
+
+.about h3:before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: -10px;
+  width: 50%;
+  height: 2px;
+  background: linear-gradient(
+    to right,
+    var(--color-effect) 50%,
+    var(--color-text-tertiary) 50%
+  );
+}
+
+@media (min-width: 810px) {
+  .about h3:before {
+    left: 85px;
+    transform: translateX(-50%);
+    width: 20%;
+    height: 3px;
+  }
+}
+
+.about .what-ido .services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(275px, 1fr));
+  gap: 0.5rem;
+}
+
+@media (min-width: 810px) {
+  .about .what-ido .services-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+}
+
+.about .what-ido .services-grid .service-card {
+  display: flex;
+  gap: 1rem;
+  background-color: var(--color-bg-secondary);
+  padding: 1rem;
+  border-radius: 12px;
+  box-shadow: var(--shadow-sm);
+}
+
+.about .what-ido .services-grid .service-card svg {
+  color: var(--color-effect);
+}
+
+.about .what-ido .services-grid .service-card h4 {
+  margin: 0 0 1rem;
+  color: white;
+}
+
+.about .what-ido .services-grid .service-card p {
+  margin: 0;
   line-height: var(--main-line-height, 1.7);
-  text-align: center;
 }
 
 .proficiencies > div {
